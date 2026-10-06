@@ -8,31 +8,27 @@ import streamlit as st
 # PROJECT PATH
 # =============================================================
 
-PROJECT_ROOT = Path(__file__).resolve().parent.parent
-CODE_DIR = PROJECT_ROOT / "Code"
+PROJECT_ROOT = Path(__file__).resolve().parents[1]
 
-if str(CODE_DIR) not in sys.path:
-    sys.path.insert(0, str(CODE_DIR))
+RAG_DIR = PROJECT_ROOT / "Code" / "rag"
+
+if str(RAG_DIR) not in sys.path:
+    sys.path.insert(0, str(RAG_DIR))
 
 
 # =============================================================
-# IMPORT RAG COMPONENTS
+# IMPORT RAG PIPELINE
 # =============================================================
 
-from retrieval.search import load_retriever, search
-
-from rag.rag_answer import (
-    create_prompt,
-    generate_answer,
-    calculate_confidence,
-    evidence_is_sufficient,
+from rag_pipeline import (
+    answer_question,
     OLLAMA_MODEL,
-    TOP_K,
+    TOP_K
 )
 
 
 # =============================================================
-# PAGE CONFIGURATION
+# STREAMLIT CONFIGURATION
 # =============================================================
 
 st.set_page_config(
@@ -43,38 +39,59 @@ st.set_page_config(
 
 
 # =============================================================
-# LOAD RETRIEVER ONCE
+# TITLE
+# =============================================================
+
+st.title(
+    "🚗 AI-Powered AUTOSAR HLD Analysis Assistant"
+)
+
+st.caption(
+    "Grounded RAG system for AUTOSAR architecture analysis"
+)
+
+
+st.info(
+    "AI-generated analysis is intended to assist engineers. "
+    "Always verify results against the original AUTOSAR ARXML."
+)
+
+
+# =============================================================
+# RETRIEVER
 # =============================================================
 
 @st.cache_resource
-def get_retriever():
+def load_retrieval_system():
 
-    model, index, metadata = load_retriever()
+    retrieval_dir = (
+        PROJECT_ROOT
+        / "Code"
+        / "retrieval"
+    )
 
-    return model, index, metadata
+    if str(retrieval_dir) not in sys.path:
+        sys.path.insert(
+            0,
+            str(retrieval_dir)
+        )
+
+    from search import load_retriever
+
+    return load_retriever()
 
 
 # =============================================================
-# HEADER
+# LOAD RETRIEVER
 # =============================================================
 
-st.title("🚗 AI-Powered AUTOSAR HLD Analysis Assistant")
+with st.spinner(
+    "Loading AUTOSAR knowledge base..."
+):
 
-st.markdown(
-    """
-    Analyze AUTOSAR architecture information using
-    **semantic retrieval + local LLM generation**.
-
-    The assistant retrieves relevant AUTOSAR evidence before
-    generating an answer.
-    """
-)
-
-st.info(
-    "⚠️ AI-generated analysis only. Always verify results against "
-    "the original AUTOSAR ARXML. This system does not replace "
-    "engineering review or approval."
-)
+    model, index, metadata = (
+        load_retrieval_system()
+    )
 
 
 # =============================================================
@@ -85,59 +102,62 @@ with st.sidebar:
 
     st.header("System Configuration")
 
-    st.write("**Embedding Model**")
-    st.code("all-MiniLM-L6-v2")
-
-    st.write("**Generation Model**")
-    st.code(OLLAMA_MODEL)
-
-    st.write("**Vector Database**")
-    st.code("FAISS")
-
-    st.write("**Retrieval Top-K**")
-    st.write(TOP_K)
-
-    st.divider()
-
-    st.header("Knowledge Base")
-
-    st.metric(
-        "Source",
-        "EcuExtract.arxml"
+    st.write(
+        f"**Embedding Model:** "
+        f"`all-MiniLM-L6-v2`"
     )
 
-    st.metric(
-        "Domain",
-        "AUTOSAR"
+    st.write(
+        f"**Generation Model:** "
+        f"`{OLLAMA_MODEL}`"
     )
 
-    st.metric(
-        "Retrieval",
-        "Semantic + Reranking"
+    st.write(
+        f"**Vector Database:** "
+        f"`FAISS`"
+    )
+
+    st.write(
+        f"**Retrieval Top-K:** "
+        f"`{TOP_K}`"
+    )
+
+    st.write(
+        f"**Indexed Chunks:** "
+        f"`{index.ntotal}`"
     )
 
     st.divider()
 
-    st.caption(
-        "Human oversight is required before using generated "
-        "analysis for engineering decisions."
+    st.subheader(
+        "Knowledge Base"
     )
 
+    st.write(
+        "`EcuExtract.arxml`"
+    )
 
-# =============================================================
-# LOAD RETRIEVER
-# =============================================================
+    st.divider()
 
-with st.spinner("Loading AUTOSAR retrieval system..."):
+    st.subheader(
+        "Responsible AI"
+    )
 
-    model, index, metadata = get_retriever()
+    st.write(
+        "The assistant provides grounded "
+        "analysis from the AUTOSAR knowledge "
+        "base and does not replace engineering "
+        "review or approval."
+    )
 
 
 # =============================================================
 # EXAMPLE QUESTIONS
 # =============================================================
 
-st.subheader("Ask about the AUTOSAR architecture")
+st.subheader(
+    "Example Questions"
+)
 
 example_questions = [
     "Which component provides DigitalServiceWrite?",
@@ -146,9 +166,10 @@ example_questions = [
     "What runnable entities are present in the architecture?"
 ]
 
+
 selected_example = st.selectbox(
-    "Example questions",
-    ["Select an example..."] + example_questions
+    "Select an example:",
+    ["-- Select --"] + example_questions
 )
 
 
@@ -157,16 +178,16 @@ selected_example = st.selectbox(
 # =============================================================
 
 question = st.text_area(
-    "Enter your question:",
+    "Enter your AUTOSAR architecture question:",
     value=(
-        ""
-        if selected_example == "Select an example..."
-        else selected_example
+        selected_example
+        if selected_example != "-- Select --"
+        else ""
     ),
     height=100,
     placeholder=(
-        "Example: Which interface does DoorControl "
-        "require through StatusLeft?"
+        "Example: Which interface does "
+        "DoorControl require through StatusLeft?"
     )
 )
 
@@ -176,7 +197,7 @@ question = st.text_area(
 # =============================================================
 
 if st.button(
-    "🔍 Analyze Architecture",
+    "🔍 Analyze AUTOSAR Architecture",
     type="primary"
 ):
 
@@ -189,162 +210,164 @@ if st.button(
     else:
 
         with st.spinner(
-            "Retrieving AUTOSAR evidence and generating answer..."
+            "Retrieving evidence and generating grounded answer..."
         ):
 
-            # -------------------------------------------------
-            # RETRIEVAL
-            # -------------------------------------------------
+            try:
 
-            results = search(
-                question,
-                model,
-                index,
-                metadata,
-                top_k=TOP_K
-            )
-
-            # -------------------------------------------------
-            # CONFIDENCE
-            # -------------------------------------------------
-
-            confidence = calculate_confidence(
-                results
-            )
-
-            # -------------------------------------------------
-            # EVIDENCE SUFFICIENCY
-            # -------------------------------------------------
-
-            sufficient = evidence_is_sufficient(
-                results
-            )
-
-            # -------------------------------------------------
-            # GENERATE ANSWER
-            # -------------------------------------------------
-
-            if sufficient:
-
-                context_parts = []
-
-                for result in results:
-
-                    context_parts.append(
-                        f"[Chunk ID: {result['chunk_id']}]\n"
-                        f"Source: {result['source']}\n"
-                        f"Chunk type: {result['chunk_type']}\n"
-                        f"Evidence: {result['text']}"
-                    )
-
-                context = "\n\n".join(
-                    context_parts
-                )
-
-                prompt = create_prompt(
+                result = answer_question(
                     question,
-                    context
+                    model,
+                    index,
+                    metadata,
+                    top_k=TOP_K
                 )
 
-                answer = generate_answer(
-                    prompt
+            except Exception as error:
+
+                st.error(
+                    f"Pipeline error: {error}"
                 )
 
             else:
 
-                answer = (
-                    "The provided AUTOSAR knowledge base does "
-                    "not contain sufficient evidence to answer "
-                    "this question."
-                )
+                # -------------------------------------------------
+                # ANSWER
+                # -------------------------------------------------
 
-
-        # =====================================================
-        # ANSWER
-        # =====================================================
-
-        st.subheader("Answer")
-
-        st.write(answer)
-
-
-        # =====================================================
-        # CONFIDENCE
-        # =====================================================
-
-        st.subheader("Confidence")
-
-        if confidence == "HIGH":
-
-            st.success("🟢 HIGH")
-
-        elif confidence == "MEDIUM":
-
-            st.warning("🟡 MEDIUM")
-
-        else:
-
-            st.error("🔴 LOW")
-
-
-        # =====================================================
-        # RETRIEVED EVIDENCE
-        # =====================================================
-
-        st.subheader("📚 Retrieved Evidence")
-
-        if results:
-
-            for result in results[:3]:
-
-                with st.expander(
-                    f"{result['chunk_id']} — "
-                    f"{result['source']}"
-                ):
-
-                    st.write(
-                        result["text"]
-                    )
-
-        else:
-
-            st.write(
-                "No supporting evidence was retrieved."
-            )
-
-
-        # =====================================================
-        # RETRIEVAL DETAILS
-        # =====================================================
-
-        with st.expander(
-            "🔎 Retrieval Details"
-        ):
-
-            for position, result in enumerate(
-                results,
-                start=1
-            ):
-
-                st.markdown(
-                    f"""
-                    ### Result {position}
-
-                    **Chunk:** `{result['chunk_id']}`
-
-                    **Type:** `{result['chunk_type']}`
-
-                    **Semantic Score:** `{result['score']:.4f}`
-
-                    **Final Score:** `{result['final_score']:.4f}`
-                    """
+                st.subheader(
+                    "Answer"
                 )
 
                 st.write(
-                    result["text"]
+                    result["answer"]
                 )
 
-                st.divider()
+
+                # -------------------------------------------------
+                # CONFIDENCE
+                # -------------------------------------------------
+
+                st.subheader(
+                    "Confidence"
+                )
+
+                confidence = (
+                    result["confidence"]
+                )
+
+                if confidence == "HIGH":
+
+                    st.success(
+                        f"🟢 {confidence}"
+                    )
+
+                elif confidence == "MEDIUM":
+
+                    st.warning(
+                        f"🟡 {confidence}"
+                    )
+
+                else:
+
+                    st.error(
+                        f"🔴 {confidence}"
+                    )
+
+
+                # -------------------------------------------------
+                # EVIDENCE STATUS
+                # -------------------------------------------------
+
+                if result[
+                    "evidence_sufficient"
+                ]:
+
+                    st.success(
+                        "Sufficient AUTOSAR evidence "
+                        "was retrieved for this answer."
+                    )
+
+                else:
+
+                    st.warning(
+                        "The knowledge base does not "
+                        "contain sufficient evidence "
+                        "for this question."
+                    )
+
+
+                # -------------------------------------------------
+                # RETRIEVED EVIDENCE
+                # -------------------------------------------------
+
+                st.subheader(
+                    "Retrieved Evidence"
+                )
+
+                for i, evidence in enumerate(
+                    result["citations"],
+                    start=1
+                ):
+
+                    with st.expander(
+                        f"Evidence {i} — "
+                        f"{evidence['chunk_id']}"
+                    ):
+
+                        st.write(
+                            f"**Source:** "
+                            f"{evidence['source']}"
+                        )
+
+                        st.write(
+                            f"**Chunk Type:** "
+                            f"{evidence['chunk_type']}"
+                        )
+
+                        st.write(
+                            evidence["text"]
+                        )
+
+
+                # -------------------------------------------------
+                # RETRIEVAL DETAILS
+                # -------------------------------------------------
+
+                with st.expander(
+                    "Retrieval Details"
+                ):
+
+                    for i, item in enumerate(
+                        result["results"],
+                        start=1
+                    ):
+
+                        st.write(
+                            f"**Rank {i}**"
+                        )
+
+                        st.write(
+                            f"Chunk: "
+                            f"`{item['chunk_id']}`"
+                        )
+
+                        st.write(
+                            f"Semantic Score: "
+                            f"{item['score']:.4f}"
+                        )
+
+                        st.write(
+                            f"Final Score: "
+                            f"{item['final_score']:.4f}"
+                        )
+
+                        st.write(
+                            f"Type: "
+                            f"{item['chunk_type']}"
+                        )
+
+                        st.divider()
 
 
 # =============================================================
@@ -354,6 +377,6 @@ if st.button(
 st.divider()
 
 st.caption(
-    "AUTOSAR HLD Analysis Assistant | "
-    "RAG + FAISS + Sentence Transformers + Ollama/Mistral"
+    "AI-Powered AUTOSAR HLD Analysis Assistant | "
+    "RAG + FAISS + Ollama/Mistral"
 )
