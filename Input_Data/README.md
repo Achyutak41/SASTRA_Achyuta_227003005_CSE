@@ -49,7 +49,25 @@ The files will be used to investigate and retrieve information such as:
 The initial dataset consists of publicly accessible AUTOSAR example files obtained from the patrikja/autosar GitHub repository. The original source and applicable licensing information will be recorded in the project dataset inventory.
 
 ## License / Permission
-The files are obtained from a public GitHub repository. The applicable repository/file license must be reviewed and retained with the project documentation before redistribution or publication.
+
+The AUTOSAR ARXML example files are obtained from the public
+`patrikja/autosar` GitHub repository.
+
+The ARXML directory contains a license permitting redistribution
+and use in source and binary forms, subject to the conditions
+specified in the repository's `ARXML/LICENSE` file.
+
+The original copyright notice and license conditions will be
+retained and cited in the project documentation.
+
+License file:
+
+https://github.com/patrikja/autosar/blob/master/ARXML/LICENSE
+
+Source repository:
+
+https://github.com/patrikja/autosar   
+    
 
 **Note:** No confidential or proprietary automotive company documents are intentionally included in this knowledge base.
 
@@ -126,4 +144,58 @@ The inventory will contain:
 | `EcuExtract.arxml` | Added |
 | `SimpleExample.xml` | Added |
 
-**Total Documents:** 2
+**Total Documents:** 2          
+    
+      
+## Input Documents
+
+### 1. EcuExtract.arxml
+* **Document ID:** `AUTOSAR_001`
+* **File:** `EcuExtract.arxml`
+* **Document Type:** AUTOSAR 4.x ARXML
+* **Purpose:** This file is used as the primary AUTOSAR architecture knowledge source for the project. It contains structured AUTOSAR information including:
+  * Application software components
+  * Service software components
+  * Ports
+  * Provided interfaces
+  * Required interfaces
+  * Data elements
+  * Runnable entities
+  * Software compositions
+  * Component prototypes
+  * Connectors
+  * System mappings
+  * System signals
+  * ECU-related information
+* **Source Repository:** [patrikja/autosar](https://github.com/patrikja/autosar)
+* **Source File:** [EcuExtract.arxml on GitHub](https://github.com/patrikja/autosar/blob/master/ARXML/EcuExtract.arxml)
+* **License:** The ARXML directory provides a BSD-style license. The applicable copyright notice, conditions, and disclaimer will be retained with the project documentation.
+* **License File:** [LICENSE on GitHub](https://github.com/patrikja/autosar/blob/master/ARXML/LICENSE)
+* **Usage in this Project:** The file will be used for academic development and evaluation of the AI-powered AUTOSAR HLD Document Analysis Assistant. The data will be parsed and converted into a searchable knowledge representation for later retrieval and RAG experiments.
+
+---
+
+### ⚠️ Important: Technical Nomenclature
+A critical technical distinction must be maintained throughout the project: **`EcuExtract.arxml` is not an HLD PDF.** 
+
+It is an **AUTOSAR ARXML architecture description**. Accordingly, the project accurately describes this knowledge base as an **AUTOSAR HLD / Architecture Knowledge Base** rather than treating the ARXML as a conventional, unstructured text document. This distinction allows the RAG pipeline to exploit structured AUTOSAR relationships rather than processing it as plain text.
+
+---
+
+### 🔍 File Verification & Validation
+Before committing changes, open `EcuExtract.arxml` and verify that it contains the following baseline architecture entities:
+
+```text
+- Door
+- DoorControl
+- DoorStatus
+- DoorCommands
+- CombinedStatus
+- EDC
+- Ports
+- Interfaces
+- Runnable entities
+- Connectors
+- System mappings
+```
+

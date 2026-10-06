@@ -1,1 +1,2 @@
 Document_ID,Document_Name,Source,Document_Type,License_or_Permission,Purpose,Status
+AUTOSAR_001,EcuExtract.arxml,https://github.com/patrikja/autosar/blob/master/ARXML/EcuExtract.arxml,AUTOSAR 4.x ARXML,BSD-style license - see ARXML/LICENSE in source repository,Primary AUTOSAR architecture knowledge base for component interface port dependency and system analysis,Verified
