@@ -1,0 +1,8 @@
+{
+  "embedding_model": "all-MiniLM-L6-v2",
+  "retrieval_top_k": 5,
+  "generation_temperature": 0.0,
+  "grounding_required": true,
+  "citation_required": true,
+  "fallback_on_insufficient_evidence": true
+}
