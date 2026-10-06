@@ -1,0 +1,143 @@
+{
+  "model": "mistral:latest",
+  "retrieval_top_k": 5,
+  "confidence_threshold": 0.7,
+  "summary": {
+    "total_tests": 6,
+    "answer_tests": 4,
+    "answer_passed": 4,
+    "answer_accuracy": 100.0,
+    "refusal_tests": 2,
+    "refusal_passed": 2,
+    "refusal_accuracy": 100.0,
+    "overall_passed": 6,
+    "overall_accuracy": 100.0
+  },
+  "tests": [
+    {
+      "id": "Q1",
+      "question": "Which component provides DigitalServiceWrite?",
+      "expected_behavior": "answer",
+      "expected_keywords": [
+        "IoHwAb",
+        "DigitalServiceWrite",
+        "Digital_Led"
+      ],
+      "answer": "The software component IoHwAb provides the DigitalServiceWrite interface through its provided port Digital_Led.",
+      "confidence": "HIGH",
+      "top_retrieval_score": 0.8969283390045166,
+      "retrieved_chunks": [
+        "chunk_018",
+        "chunk_003",
+        "chunk_005",
+        "chunk_016",
+        "chunk_019"
+      ],
+      "missing_keywords": [],
+      "result": "PASS"
+    },
+    {
+      "id": "Q2",
+      "question": "Which interface does DoorControl require through StatusLeft?",
+      "expected_behavior": "answer",
+      "expected_keywords": [
+        "DoorControl",
+        "DoorStatus",
+        "StatusLeft"
+      ],
+      "answer": "The interface that the DoorControl requires through StatusLeft is /Demo/Interfaces/DoorStatus.",
+      "confidence": "HIGH",
+      "top_retrieval_score": 1.0828242778778077,
+      "retrieved_chunks": [
+        "chunk_020",
+        "chunk_021",
+        "chunk_022",
+        "chunk_023",
+        "chunk_024"
+      ],
+      "missing_keywords": [],
+      "result": "PASS"
+    },
+    {
+      "id": "Q3",
+      "question": "What interfaces does the Door component provide?",
+      "expected_behavior": "answer",
+      "expected_keywords": [
+        "Door",
+        "DoorStatus",
+        "Status"
+      ],
+      "answer": "The Door component provides the interfaces /Demo/Interfaces/DoorStatus and /Demo/Interfaces/DoorCommands.",
+      "confidence": "HIGH",
+      "top_retrieval_score": 1.0174044752120972,
+      "retrieved_chunks": [
+        "chunk_016",
+        "chunk_017",
+        "chunk_019",
+        "chunk_004",
+        "chunk_006"
+      ],
+      "missing_keywords": [],
+      "result": "PASS"
+    },
+    {
+      "id": "Q4",
+      "question": "What runnable entities are present in the architecture?",
+      "expected_behavior": "answer",
+      "expected_keywords": [
+        "DoorMain",
+        "SetLocked",
+        "DigitalWrite",
+        "Main"
+      ],
+      "answer": "The provided AUTOSAR knowledge base contains the following runnable entities: DoorMain, SetLocked, DigitalWrite, and Main.",
+      "confidence": "MEDIUM",
+      "top_retrieval_score": 0.7242111492156983,
+      "retrieved_chunks": [
+        "chunk_009",
+        "chunk_005",
+        "chunk_007",
+        "chunk_006",
+        "chunk_008"
+      ],
+      "missing_keywords": [],
+      "result": "PASS"
+    },
+    {
+      "id": "Q5",
+      "question": "What is the maximum CPU frequency of the ECU?",
+      "expected_behavior": "refuse",
+      "expected_keywords": [],
+      "answer": "The provided AUTOSAR knowledge base does not contain sufficient evidence to answer this question.",
+      "confidence": "LOW",
+      "top_retrieval_score": 0.0924747884273529,
+      "retrieved_chunks": [
+        "chunk_006",
+        "chunk_005",
+        "chunk_016",
+        "chunk_018",
+        "chunk_008"
+      ],
+      "missing_keywords": [],
+      "result": "PASS"
+    },
+    {
+      "id": "Q6",
+      "question": "What is the battery capacity of the vehicle?",
+      "expected_behavior": "refuse",
+      "expected_keywords": [],
+      "answer": "The provided AUTOSAR knowledge base does not contain sufficient evidence to answer this question.",
+      "confidence": "LOW",
+      "top_retrieval_score": 0.13802723586559296,
+      "retrieved_chunks": [
+        "chunk_031",
+        "chunk_009",
+        "chunk_034",
+        "chunk_002",
+        "chunk_032"
+      ],
+      "missing_keywords": [],
+      "result": "PASS"
+    }
+  ]
+}

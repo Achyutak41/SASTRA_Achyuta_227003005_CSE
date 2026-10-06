@@ -1,0 +1,55 @@
+[
+  {
+    "id": "Q1",
+    "question": "Which component provides DigitalServiceWrite?",
+    "expected_keywords": [
+      "IoHwAb",
+      "DigitalServiceWrite",
+      "Digital_Led"
+    ],
+    "expected_behavior": "answer"
+  },
+  {
+    "id": "Q2",
+    "question": "Which interface does DoorControl require through StatusLeft?",
+    "expected_keywords": [
+      "DoorControl",
+      "DoorStatus",
+      "StatusLeft"
+    ],
+    "expected_behavior": "answer"
+  },
+  {
+    "id": "Q3",
+    "question": "What interfaces does the Door component provide?",
+    "expected_keywords": [
+      "Door",
+      "DoorStatus",
+      "Status"
+    ],
+    "expected_behavior": "answer"
+  },
+  {
+    "id": "Q4",
+    "question": "What runnable entities are present in the architecture?",
+    "expected_keywords": [
+      "DoorMain",
+      "SetLocked",
+      "DigitalWrite",
+      "Main"
+    ],
+    "expected_behavior": "answer"
+  },
+  {
+    "id": "Q5",
+    "question": "What is the maximum CPU frequency of the ECU?",
+    "expected_keywords": [],
+    "expected_behavior": "refuse"
+  },
+  {
+    "id": "Q6",
+    "question": "What is the battery capacity of the vehicle?",
+    "expected_keywords": [],
+    "expected_behavior": "refuse"
+  }
+]
