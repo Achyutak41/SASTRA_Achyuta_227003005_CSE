@@ -1,0 +1,40 @@
+[
+  {
+    "query": "Which interface does DoorControl require through StatusLeft?",
+    "expected_keywords": [
+      "DoorControl",
+      "StatusLeft",
+      "DoorStatus"
+    ]
+  },
+  {
+    "query": "What interfaces does DoorControl require?",
+    "expected_keywords": [
+      "DoorControl",
+      "requires",
+      "interface"
+    ]
+  },
+  {
+    "query": "What interfaces does the Door component provide?",
+    "expected_keywords": [
+      "Door",
+      "provides",
+      "interface"
+    ]
+  },
+  {
+    "query": "Which component provides DigitalServiceWrite?",
+    "expected_keywords": [
+      "DigitalServiceWrite",
+      "IoHwAb"
+    ]
+  },
+  {
+    "query": "What runnable entities are present in the architecture?",
+    "expected_keywords": [
+      "runnable",
+      "DoorMain"
+    ]
+  }
+]

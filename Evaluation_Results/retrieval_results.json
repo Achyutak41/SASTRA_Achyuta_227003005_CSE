@@ -1,0 +1,83 @@
+[
+  {
+    "query": "Which interface does DoorControl require through StatusLeft?",
+    "top_chunk": "chunk_020",
+    "top_score": 0.7828242778778076,
+    "top_text": "The software component DoorControl REQUIRES the interface /Demo/Interfaces/DoorStatus through its required port StatusLeft. This is a REQUIRES_INTERFACE relationship.",
+    "expected_keywords": [
+      "doorcontrol",
+      "statusleft",
+      "doorstatus"
+    ],
+    "matched_keywords": [
+      "doorcontrol",
+      "statusleft",
+      "doorstatus"
+    ],
+    "passed": true
+  },
+  {
+    "query": "What interfaces does DoorControl require?",
+    "top_chunk": "chunk_022",
+    "top_score": 0.7689213752746582,
+    "top_text": "The software component DoorControl REQUIRES the interface /Demo/Interfaces/DoorCommands through its required port CommandsLeft. This is a REQUIRES_INTERFACE relationship.",
+    "expected_keywords": [
+      "doorcontrol",
+      "requires",
+      "interface"
+    ],
+    "matched_keywords": [
+      "doorcontrol",
+      "requires",
+      "interface"
+    ],
+    "passed": true
+  },
+  {
+    "query": "What interfaces does the Door component provide?",
+    "top_chunk": "chunk_016",
+    "top_score": 0.7274044752120972,
+    "top_text": "The software component Door PROVIDES the interface /Demo/Interfaces/DoorStatus through its provided port Status. This is a PROVIDES_INTERFACE relationship.",
+    "expected_keywords": [
+      "door",
+      "provides",
+      "interface"
+    ],
+    "matched_keywords": [
+      "door",
+      "provides",
+      "interface"
+    ],
+    "passed": true
+  },
+  {
+    "query": "Which component provides DigitalServiceWrite?",
+    "top_chunk": "chunk_018",
+    "top_score": 0.6169283390045166,
+    "top_text": "The software component IoHwAb PROVIDES the interface /Demo/Services/IoHwAb/DigitalServiceWrite through its provided port Digital_Led. This is a PROVIDES_INTERFACE relationship.",
+    "expected_keywords": [
+      "digitalservicewrite",
+      "iohwab"
+    ],
+    "matched_keywords": [
+      "digitalservicewrite",
+      "iohwab"
+    ],
+    "passed": true
+  },
+  {
+    "query": "What runnable entities are present in the architecture?",
+    "top_chunk": "chunk_009",
+    "top_score": 0.5442111492156982,
+    "top_text": "The AUTOSAR architecture contains the following runnable entities: DoorMain, SetLocked, DigitalWrite, Main.",
+    "expected_keywords": [
+      "runnable",
+      "doormain"
+    ],
+    "matched_keywords": [
+      "runnable",
+      "doormain"
+    ],
+    "passed": true
+  }
+]

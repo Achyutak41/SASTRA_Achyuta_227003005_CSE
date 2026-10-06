@@ -1,0 +1,238 @@
+[
+  {
+    "chunk_id": "chunk_001",
+    "chunk_type": "document",
+    "text": "AUTOSAR document EcuExtract.arxml has root element AUTOSAR.",
+    "source": "EcuExtract.arxml"
+  },
+  {
+    "chunk_id": "chunk_002",
+    "chunk_type": "software_component",
+    "component": "Door",
+    "text": "Software component: Door. Component type: APPLICATION-SW-COMPONENT-TYPE. It provides port Status through interface reference /Demo/Interfaces/DoorStatus. It provides port Command through interface reference /Demo/Interfaces/DoorCommands.",
+    "source": "EcuExtract.arxml"
+  },
+  {
+    "chunk_id": "chunk_003",
+    "chunk_type": "software_component",
+    "component": "IoHwAb",
+    "text": "Software component: IoHwAb. Component type: SERVICE-SW-COMPONENT-TYPE. It provides port Digital_Led through interface reference /Demo/Services/IoHwAb/DigitalServiceWrite.",
+    "source": "EcuExtract.arxml"
+  },
+  {
+    "chunk_id": "chunk_004",
+    "chunk_type": "software_component",
+    "component": "DoorControl",
+    "text": "Software component: DoorControl. Component type: APPLICATION-SW-COMPONENT-TYPE. It provides port CombinedStatus through interface reference /Demo/Interfaces/CombinedStatus. It requires port StatusLeft through interface reference /Demo/Interfaces/DoorStatus. It requires port StatusRight through interface reference /Demo/Interfaces/DoorStatus. It requires port CommandsLeft through interface reference /Demo/Interfaces/DoorCommands. It requires port CommandsRight through interface reference /Demo/Interfaces/DoorCommands. It requires port Led through interface reference /Demo/Services/IoHwAb/DigitalServiceWrite.",
+    "source": "EcuExtract.arxml"
+  },
+  {
+    "chunk_id": "chunk_005",
+    "chunk_type": "interface",
+    "interface": "DigitalServiceWrite",
+    "text": "Interface DigitalServiceWrite is a CLIENT-SERVER-INTERFACE.",
+    "source": "EcuExtract.arxml"
+  },
+  {
+    "chunk_id": "chunk_006",
+    "chunk_type": "interface",
+    "interface": "DoorStatus",
+    "text": "Interface DoorStatus is a SENDER-RECEIVER-INTERFACE.",
+    "source": "EcuExtract.arxml"
+  },
+  {
+    "chunk_id": "chunk_007",
+    "chunk_type": "interface",
+    "interface": "DoorCommands",
+    "text": "Interface DoorCommands is a CLIENT-SERVER-INTERFACE.",
+    "source": "EcuExtract.arxml"
+  },
+  {
+    "chunk_id": "chunk_008",
+    "chunk_type": "interface",
+    "interface": "CombinedStatus",
+    "text": "Interface CombinedStatus is a SENDER-RECEIVER-INTERFACE.",
+    "source": "EcuExtract.arxml"
+  },
+  {
+    "chunk_id": "chunk_009",
+    "chunk_type": "runnable_summary",
+    "text": "The AUTOSAR architecture contains the following runnable entities: DoorMain, SetLocked, DigitalWrite, Main.",
+    "source": "EcuExtract.arxml"
+  },
+  {
+    "chunk_id": "chunk_010",
+    "chunk_type": "connector",
+    "connector": "DoorLeft_Command_to_Control_CommandsLeft",
+    "text": "Connector: DoorLeft_Command_to_Control_CommandsLeft. Connector type: ASSEMBLY-SW-CONNECTOR. CONTEXT-COMPONENT-REF: /Demo/EDC/EDC/DoorLeft. TARGET-P-PORT-REF: /Demo/Door/Door/Command. CONTEXT-COMPONENT-REF: /Demo/EDC/EDC/Control. TARGET-R-PORT-REF: /Demo/DoorControl/DoorControl/CommandsLeft.",
+    "source": "EcuExtract.arxml"
+  },
+  {
+    "chunk_id": "chunk_011",
+    "chunk_type": "connector",
+    "connector": "DoorRight_Command_to_Control_CommandsRight",
+    "text": "Connector: DoorRight_Command_to_Control_CommandsRight. Connector type: ASSEMBLY-SW-CONNECTOR. CONTEXT-COMPONENT-REF: /Demo/EDC/EDC/DoorRight. TARGET-P-PORT-REF: /Demo/Door/Door/Command. CONTEXT-COMPONENT-REF: /Demo/EDC/EDC/Control. TARGET-R-PORT-REF: /Demo/DoorControl/DoorControl/CommandsRight.",
+    "source": "EcuExtract.arxml"
+  },
+  {
+    "chunk_id": "chunk_012",
+    "chunk_type": "connector",
+    "connector": "DoorLeft_Status_to_Control_StatusLeft",
+    "text": "Connector: DoorLeft_Status_to_Control_StatusLeft. Connector type: ASSEMBLY-SW-CONNECTOR. CONTEXT-COMPONENT-REF: /Demo/EDC/EDC/DoorLeft. TARGET-P-PORT-REF: /Demo/Door/Door/Status. CONTEXT-COMPONENT-REF: /Demo/EDC/EDC/Control. TARGET-R-PORT-REF: /Demo/DoorControl/DoorControl/StatusLeft.",
+    "source": "EcuExtract.arxml"
+  },
+  {
+    "chunk_id": "chunk_013",
+    "chunk_type": "connector",
+    "connector": "DoorRight_Status_to_Control_StatusRight",
+    "text": "Connector: DoorRight_Status_to_Control_StatusRight. Connector type: ASSEMBLY-SW-CONNECTOR. CONTEXT-COMPONENT-REF: /Demo/EDC/EDC/DoorRight. TARGET-P-PORT-REF: /Demo/Door/Door/Status. CONTEXT-COMPONENT-REF: /Demo/EDC/EDC/Control. TARGET-R-PORT-REF: /Demo/DoorControl/DoorControl/StatusRight.",
+    "source": "EcuExtract.arxml"
+  },
+  {
+    "chunk_id": "chunk_014",
+    "chunk_type": "connector",
+    "connector": "IO_Digital_Led_to_Control_Led",
+    "text": "Connector: IO_Digital_Led_to_Control_Led. Connector type: ASSEMBLY-SW-CONNECTOR. CONTEXT-COMPONENT-REF: /Demo/EDC/EDC/IO. TARGET-P-PORT-REF: /Demo/Services/IoHwAb/IoHwAb/Digital_Led. CONTEXT-COMPONENT-REF: /Demo/EDC/EDC/Control. TARGET-R-PORT-REF: /Demo/DoorControl/DoorControl/Led.",
+    "source": "EcuExtract.arxml"
+  },
+  {
+    "chunk_id": "chunk_015",
+    "chunk_type": "connector",
+    "connector": "CombinedStatus_delegate_connector0",
+    "text": "Connector: CombinedStatus_delegate_connector0. Connector type: DELEGATION-SW-CONNECTOR. P-PORT-IN-COMPOSITION-INSTANCE-REF: . CONTEXT-COMPONENT-REF: /Demo/EDC/EDC/Control. TARGET-P-PORT-REF: /Demo/DoorControl/DoorControl/CombinedStatus. OUTER-PORT-REF: /Demo/EDC/EDC/CombinedStatus.",
+    "source": "EcuExtract.arxml"
+  },
+  {
+    "chunk_id": "chunk_016",
+    "chunk_type": "relationship",
+    "relationship_type": "PROVIDES_INTERFACE",
+    "text": "The software component Door PROVIDES the interface /Demo/Interfaces/DoorStatus through its provided port Status. This is a PROVIDES_INTERFACE relationship.",
+    "source": "EcuExtract.arxml"
+  },
+  {
+    "chunk_id": "chunk_017",
+    "chunk_type": "relationship",
+    "relationship_type": "PROVIDES_INTERFACE",
+    "text": "The software component Door PROVIDES the interface /Demo/Interfaces/DoorCommands through its provided port Command. This is a PROVIDES_INTERFACE relationship.",
+    "source": "EcuExtract.arxml"
+  },
+  {
+    "chunk_id": "chunk_018",
+    "chunk_type": "relationship",
+    "relationship_type": "PROVIDES_INTERFACE",
+    "text": "The software component IoHwAb PROVIDES the interface /Demo/Services/IoHwAb/DigitalServiceWrite through its provided port Digital_Led. This is a PROVIDES_INTERFACE relationship.",
+    "source": "EcuExtract.arxml"
+  },
+  {
+    "chunk_id": "chunk_019",
+    "chunk_type": "relationship",
+    "relationship_type": "PROVIDES_INTERFACE",
+    "text": "The software component DoorControl PROVIDES the interface /Demo/Interfaces/CombinedStatus through its provided port CombinedStatus. This is a PROVIDES_INTERFACE relationship.",
+    "source": "EcuExtract.arxml"
+  },
+  {
+    "chunk_id": "chunk_020",
+    "chunk_type": "relationship",
+    "relationship_type": "REQUIRES_INTERFACE",
+    "text": "The software component DoorControl REQUIRES the interface /Demo/Interfaces/DoorStatus through its required port StatusLeft. This is a REQUIRES_INTERFACE relationship.",
+    "source": "EcuExtract.arxml"
+  },
+  {
+    "chunk_id": "chunk_021",
+    "chunk_type": "relationship",
+    "relationship_type": "REQUIRES_INTERFACE",
+    "text": "The software component DoorControl REQUIRES the interface /Demo/Interfaces/DoorStatus through its required port StatusRight. This is a REQUIRES_INTERFACE relationship.",
+    "source": "EcuExtract.arxml"
+  },
+  {
+    "chunk_id": "chunk_022",
+    "chunk_type": "relationship",
+    "relationship_type": "REQUIRES_INTERFACE",
+    "text": "The software component DoorControl REQUIRES the interface /Demo/Interfaces/DoorCommands through its required port CommandsLeft. This is a REQUIRES_INTERFACE relationship.",
+    "source": "EcuExtract.arxml"
+  },
+  {
+    "chunk_id": "chunk_023",
+    "chunk_type": "relationship",
+    "relationship_type": "REQUIRES_INTERFACE",
+    "text": "The software component DoorControl REQUIRES the interface /Demo/Interfaces/DoorCommands through its required port CommandsRight. This is a REQUIRES_INTERFACE relationship.",
+    "source": "EcuExtract.arxml"
+  },
+  {
+    "chunk_id": "chunk_024",
+    "chunk_type": "relationship",
+    "relationship_type": "REQUIRES_INTERFACE",
+    "text": "The software component DoorControl REQUIRES the interface /Demo/Services/IoHwAb/DigitalServiceWrite through its required port Led. This is a REQUIRES_INTERFACE relationship.",
+    "source": "EcuExtract.arxml"
+  },
+  {
+    "chunk_id": "chunk_025",
+    "chunk_type": "relationship",
+    "relationship_type": "CONNECTOR",
+    "text": "Connector DoorLeft_Command_to_Control_CommandsLeft is a ASSEMBLY-SW-CONNECTOR. Provider port references: /Demo/Door/Door/Command. Required port references: /Demo/DoorControl/DoorControl/CommandsLeft. Context component references: /Demo/EDC/EDC/DoorLeft, /Demo/EDC/EDC/Control.",
+    "source": "EcuExtract.arxml"
+  },
+  {
+    "chunk_id": "chunk_026",
+    "chunk_type": "relationship",
+    "relationship_type": "CONNECTOR",
+    "text": "Connector DoorRight_Command_to_Control_CommandsRight is a ASSEMBLY-SW-CONNECTOR. Provider port references: /Demo/Door/Door/Command. Required port references: /Demo/DoorControl/DoorControl/CommandsRight. Context component references: /Demo/EDC/EDC/DoorRight, /Demo/EDC/EDC/Control.",
+    "source": "EcuExtract.arxml"
+  },
+  {
+    "chunk_id": "chunk_027",
+    "chunk_type": "relationship",
+    "relationship_type": "CONNECTOR",
+    "text": "Connector DoorLeft_Status_to_Control_StatusLeft is a ASSEMBLY-SW-CONNECTOR. Provider port references: /Demo/Door/Door/Status. Required port references: /Demo/DoorControl/DoorControl/StatusLeft. Context component references: /Demo/EDC/EDC/DoorLeft, /Demo/EDC/EDC/Control.",
+    "source": "EcuExtract.arxml"
+  },
+  {
+    "chunk_id": "chunk_028",
+    "chunk_type": "relationship",
+    "relationship_type": "CONNECTOR",
+    "text": "Connector DoorRight_Status_to_Control_StatusRight is a ASSEMBLY-SW-CONNECTOR. Provider port references: /Demo/Door/Door/Status. Required port references: /Demo/DoorControl/DoorControl/StatusRight. Context component references: /Demo/EDC/EDC/DoorRight, /Demo/EDC/EDC/Control.",
+    "source": "EcuExtract.arxml"
+  },
+  {
+    "chunk_id": "chunk_029",
+    "chunk_type": "relationship",
+    "relationship_type": "CONNECTOR",
+    "text": "Connector IO_Digital_Led_to_Control_Led is a ASSEMBLY-SW-CONNECTOR. Provider port references: /Demo/Services/IoHwAb/IoHwAb/Digital_Led. Required port references: /Demo/DoorControl/DoorControl/Led. Context component references: /Demo/EDC/EDC/IO, /Demo/EDC/EDC/Control.",
+    "source": "EcuExtract.arxml"
+  },
+  {
+    "chunk_id": "chunk_030",
+    "chunk_type": "relationship",
+    "relationship_type": "CONNECTOR",
+    "text": "Connector CombinedStatus_delegate_connector0 is a DELEGATION-SW-CONNECTOR. Provider port references: /Demo/DoorControl/DoorControl/CombinedStatus. Context component references: /Demo/EDC/EDC/Control.",
+    "source": "EcuExtract.arxml"
+  },
+  {
+    "chunk_id": "chunk_031",
+    "chunk_type": "interface_provider_summary",
+    "interface": "DoorStatus",
+    "text": "The AUTOSAR interface DoorStatus is PROVIDED by Door through port Status.",
+    "source": "EcuExtract.arxml"
+  },
+  {
+    "chunk_id": "chunk_032",
+    "chunk_type": "interface_provider_summary",
+    "interface": "DoorCommands",
+    "text": "The AUTOSAR interface DoorCommands is PROVIDED by Door through port Command.",
+    "source": "EcuExtract.arxml"
+  },
+  {
+    "chunk_id": "chunk_033",
+    "chunk_type": "interface_provider_summary",
+    "interface": "DigitalServiceWrite",
+    "text": "The AUTOSAR interface DigitalServiceWrite is PROVIDED by IoHwAb through port Digital_Led.",
+    "source": "EcuExtract.arxml"
+  },
+  {
+    "chunk_id": "chunk_034",
+    "chunk_type": "interface_provider_summary",
+    "interface": "CombinedStatus",
+    "text": "The AUTOSAR interface CombinedStatus is PROVIDED by DoorControl through port CombinedStatus.",
+    "source": "EcuExtract.arxml"
+  }
+]
