@@ -1,0 +1,49 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+
+# Virtual environments
+venv/
+.venv/
+env/
+
+# Environment variables
+.env
+.env.*
+
+# IDE
+.vscode/
+.idea/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Python testing
+.pytest_cache/
+.coverage
+
+# Logs
+*.log
+
+# Local databases
+*.db
+*.sqlite
+*.sqlite3
+
+# Vector databases
+vector_store/
+chroma_db/
+faiss_index/
+
+# Generated files
+outputs/
+results/
+tmp/
+
+# Large local data
+*.zip
+
+# Jupyter
+.ipynb_checkpoints/
