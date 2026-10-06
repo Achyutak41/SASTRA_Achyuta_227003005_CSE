@@ -1,0 +1,146 @@
+AUTOSAR ARCHITECTURE KNOWLEDGE BASE
+============================================================
+
+DOCUMENT
+------------------------------------------------------------
+File: EcuExtract.arxml
+Root Element: AUTOSAR
+
+SOFTWARE COMPONENTS
+------------------------------------------------------------
+Component: Door
+Type: APPLICATION-SW-COMPONENT-TYPE
+Provides Port: Status
+Provides Interface: /Demo/Interfaces/DoorStatus
+Provides Port: Command
+Provides Interface: /Demo/Interfaces/DoorCommands
+
+Component: IoHwAb
+Type: SERVICE-SW-COMPONENT-TYPE
+Provides Port: Digital_Led
+Provides Interface: /Demo/Services/IoHwAb/DigitalServiceWrite
+
+Component: DoorControl
+Type: APPLICATION-SW-COMPONENT-TYPE
+Provides Port: CombinedStatus
+Provides Interface: /Demo/Interfaces/CombinedStatus
+Requires Port: StatusLeft
+Requires Interface: /Demo/Interfaces/DoorStatus
+Requires Port: StatusRight
+Requires Interface: /Demo/Interfaces/DoorStatus
+Requires Port: CommandsLeft
+Requires Interface: /Demo/Interfaces/DoorCommands
+Requires Port: CommandsRight
+Requires Interface: /Demo/Interfaces/DoorCommands
+Requires Port: Led
+Requires Interface: /Demo/Services/IoHwAb/DigitalServiceWrite
+
+INTERFACES
+------------------------------------------------------------
+Interface: DigitalServiceWrite
+Type: CLIENT-SERVER-INTERFACE
+
+Interface: DoorStatus
+Type: SENDER-RECEIVER-INTERFACE
+
+Interface: DoorCommands
+Type: CLIENT-SERVER-INTERFACE
+
+Interface: CombinedStatus
+Type: SENDER-RECEIVER-INTERFACE
+
+RUNNABLE ENTITIES
+------------------------------------------------------------
+Runnable: DoorMain
+Runnable: SetLocked
+Runnable: DigitalWrite
+Runnable: Main
+
+CONNECTORS
+------------------------------------------------------------
+Connector: DoorLeft_Command_to_Control_CommandsLeft
+Type: ASSEMBLY-SW-CONNECTOR
+CONTEXT-COMPONENT-REF: /Demo/EDC/EDC/DoorLeft
+TARGET-P-PORT-REF: /Demo/Door/Door/Command
+CONTEXT-COMPONENT-REF: /Demo/EDC/EDC/Control
+TARGET-R-PORT-REF: /Demo/DoorControl/DoorControl/CommandsLeft
+
+Connector: DoorRight_Command_to_Control_CommandsRight
+Type: ASSEMBLY-SW-CONNECTOR
+CONTEXT-COMPONENT-REF: /Demo/EDC/EDC/DoorRight
+TARGET-P-PORT-REF: /Demo/Door/Door/Command
+CONTEXT-COMPONENT-REF: /Demo/EDC/EDC/Control
+TARGET-R-PORT-REF: /Demo/DoorControl/DoorControl/CommandsRight
+
+Connector: DoorLeft_Status_to_Control_StatusLeft
+Type: ASSEMBLY-SW-CONNECTOR
+CONTEXT-COMPONENT-REF: /Demo/EDC/EDC/DoorLeft
+TARGET-P-PORT-REF: /Demo/Door/Door/Status
+CONTEXT-COMPONENT-REF: /Demo/EDC/EDC/Control
+TARGET-R-PORT-REF: /Demo/DoorControl/DoorControl/StatusLeft
+
+Connector: DoorRight_Status_to_Control_StatusRight
+Type: ASSEMBLY-SW-CONNECTOR
+CONTEXT-COMPONENT-REF: /Demo/EDC/EDC/DoorRight
+TARGET-P-PORT-REF: /Demo/Door/Door/Status
+CONTEXT-COMPONENT-REF: /Demo/EDC/EDC/Control
+TARGET-R-PORT-REF: /Demo/DoorControl/DoorControl/StatusRight
+
+Connector: IO_Digital_Led_to_Control_Led
+Type: ASSEMBLY-SW-CONNECTOR
+CONTEXT-COMPONENT-REF: /Demo/EDC/EDC/IO
+TARGET-P-PORT-REF: /Demo/Services/IoHwAb/IoHwAb/Digital_Led
+CONTEXT-COMPONENT-REF: /Demo/EDC/EDC/Control
+TARGET-R-PORT-REF: /Demo/DoorControl/DoorControl/Led
+
+Connector: CombinedStatus_delegate_connector0
+Type: DELEGATION-SW-CONNECTOR
+P-PORT-IN-COMPOSITION-INSTANCE-REF: 
+CONTEXT-COMPONENT-REF: /Demo/EDC/EDC/Control
+TARGET-P-PORT-REF: /Demo/DoorControl/DoorControl/CombinedStatus
+OUTER-PORT-REF: /Demo/EDC/EDC/CombinedStatus
+
+ARCHITECTURAL RELATIONSHIPS
+------------------------------------------------------------
+Door provides interface /Demo/Interfaces/DoorStatus through port Status.
+Door provides interface /Demo/Interfaces/DoorCommands through port Command.
+IoHwAb provides interface /Demo/Services/IoHwAb/DigitalServiceWrite through port Digital_Led.
+DoorControl provides interface /Demo/Interfaces/CombinedStatus through port CombinedStatus.
+DoorControl requires interface /Demo/Interfaces/DoorStatus through port StatusLeft.
+DoorControl requires interface /Demo/Interfaces/DoorStatus through port StatusRight.
+DoorControl requires interface /Demo/Interfaces/DoorCommands through port CommandsLeft.
+DoorControl requires interface /Demo/Interfaces/DoorCommands through port CommandsRight.
+DoorControl requires interface /Demo/Services/IoHwAb/DigitalServiceWrite through port Led.
+Connector DoorLeft_Command_to_Control_CommandsLeft (ASSEMBLY-SW-CONNECTOR) connects AUTOSAR references.
+Provider port reference: /Demo/Door/Door/Command
+Required port reference: /Demo/DoorControl/DoorControl/CommandsLeft
+Context component reference: /Demo/EDC/EDC/DoorLeft
+Context component reference: /Demo/EDC/EDC/Control
+
+Connector DoorRight_Command_to_Control_CommandsRight (ASSEMBLY-SW-CONNECTOR) connects AUTOSAR references.
+Provider port reference: /Demo/Door/Door/Command
+Required port reference: /Demo/DoorControl/DoorControl/CommandsRight
+Context component reference: /Demo/EDC/EDC/DoorRight
+Context component reference: /Demo/EDC/EDC/Control
+
+Connector DoorLeft_Status_to_Control_StatusLeft (ASSEMBLY-SW-CONNECTOR) connects AUTOSAR references.
+Provider port reference: /Demo/Door/Door/Status
+Required port reference: /Demo/DoorControl/DoorControl/StatusLeft
+Context component reference: /Demo/EDC/EDC/DoorLeft
+Context component reference: /Demo/EDC/EDC/Control
+
+Connector DoorRight_Status_to_Control_StatusRight (ASSEMBLY-SW-CONNECTOR) connects AUTOSAR references.
+Provider port reference: /Demo/Door/Door/Status
+Required port reference: /Demo/DoorControl/DoorControl/StatusRight
+Context component reference: /Demo/EDC/EDC/DoorRight
+Context component reference: /Demo/EDC/EDC/Control
+
+Connector IO_Digital_Led_to_Control_Led (ASSEMBLY-SW-CONNECTOR) connects AUTOSAR references.
+Provider port reference: /Demo/Services/IoHwAb/IoHwAb/Digital_Led
+Required port reference: /Demo/DoorControl/DoorControl/Led
+Context component reference: /Demo/EDC/EDC/IO
+Context component reference: /Demo/EDC/EDC/Control
+
+Connector CombinedStatus_delegate_connector0 (DELEGATION-SW-CONNECTOR) connects AUTOSAR references.
+Provider port reference: /Demo/DoorControl/DoorControl/CombinedStatus
+Context component reference: /Demo/EDC/EDC/Control

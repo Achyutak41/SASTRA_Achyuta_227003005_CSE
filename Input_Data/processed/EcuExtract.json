@@ -5,54 +5,67 @@
         {
             "name": "Door",
             "type": "APPLICATION-SW-COMPONENT-TYPE",
-            "ports": [
+            "provided_ports": [
                 {
                     "name": "Status",
-                    "type": "P-PORT-PROTOTYPE"
+                    "type": "P-PORT-PROTOTYPE",
+                    "interface_ref": "/Demo/Interfaces/DoorStatus"
                 },
                 {
                     "name": "Command",
-                    "type": "P-PORT-PROTOTYPE"
+                    "type": "P-PORT-PROTOTYPE",
+                    "interface_ref": "/Demo/Interfaces/DoorCommands"
                 }
-            ]
+            ],
+            "required_ports": []
         },
         {
             "name": "IoHwAb",
             "type": "SERVICE-SW-COMPONENT-TYPE",
-            "ports": [
+            "provided_ports": [
                 {
                     "name": "Digital_Led",
-                    "type": "P-PORT-PROTOTYPE"
+                    "type": "P-PORT-PROTOTYPE",
+                    "interface_ref": "/Demo/Services/IoHwAb/DigitalServiceWrite"
                 }
-            ]
+            ],
+            "required_ports": []
         },
         {
             "name": "DoorControl",
             "type": "APPLICATION-SW-COMPONENT-TYPE",
-            "ports": [
+            "provided_ports": [
+                {
+                    "name": "CombinedStatus",
+                    "type": "P-PORT-PROTOTYPE",
+                    "interface_ref": "/Demo/Interfaces/CombinedStatus"
+                }
+            ],
+            "required_ports": [
                 {
                     "name": "StatusLeft",
-                    "type": "R-PORT-PROTOTYPE"
+                    "type": "R-PORT-PROTOTYPE",
+                    "interface_ref": "/Demo/Interfaces/DoorStatus"
                 },
                 {
                     "name": "StatusRight",
-                    "type": "R-PORT-PROTOTYPE"
+                    "type": "R-PORT-PROTOTYPE",
+                    "interface_ref": "/Demo/Interfaces/DoorStatus"
                 },
                 {
                     "name": "CommandsLeft",
-                    "type": "R-PORT-PROTOTYPE"
+                    "type": "R-PORT-PROTOTYPE",
+                    "interface_ref": "/Demo/Interfaces/DoorCommands"
                 },
                 {
                     "name": "CommandsRight",
-                    "type": "R-PORT-PROTOTYPE"
+                    "type": "R-PORT-PROTOTYPE",
+                    "interface_ref": "/Demo/Interfaces/DoorCommands"
                 },
                 {
                     "name": "Led",
-                    "type": "R-PORT-PROTOTYPE"
-                },
-                {
-                    "name": "CombinedStatus",
-                    "type": "P-PORT-PROTOTYPE"
+                    "type": "R-PORT-PROTOTYPE",
+                    "interface_ref": "/Demo/Services/IoHwAb/DigitalServiceWrite"
                 }
             ]
         }
@@ -84,27 +97,278 @@
     "connectors": [
         {
             "name": "DoorLeft_Command_to_Control_CommandsLeft",
-            "type": "ASSEMBLY-SW-CONNECTOR"
+            "type": "ASSEMBLY-SW-CONNECTOR",
+            "references": [
+                {
+                    "type": "CONTEXT-COMPONENT-REF",
+                    "value": "/Demo/EDC/EDC/DoorLeft"
+                },
+                {
+                    "type": "TARGET-P-PORT-REF",
+                    "value": "/Demo/Door/Door/Command"
+                },
+                {
+                    "type": "CONTEXT-COMPONENT-REF",
+                    "value": "/Demo/EDC/EDC/Control"
+                },
+                {
+                    "type": "TARGET-R-PORT-REF",
+                    "value": "/Demo/DoorControl/DoorControl/CommandsLeft"
+                }
+            ]
         },
         {
             "name": "DoorRight_Command_to_Control_CommandsRight",
-            "type": "ASSEMBLY-SW-CONNECTOR"
+            "type": "ASSEMBLY-SW-CONNECTOR",
+            "references": [
+                {
+                    "type": "CONTEXT-COMPONENT-REF",
+                    "value": "/Demo/EDC/EDC/DoorRight"
+                },
+                {
+                    "type": "TARGET-P-PORT-REF",
+                    "value": "/Demo/Door/Door/Command"
+                },
+                {
+                    "type": "CONTEXT-COMPONENT-REF",
+                    "value": "/Demo/EDC/EDC/Control"
+                },
+                {
+                    "type": "TARGET-R-PORT-REF",
+                    "value": "/Demo/DoorControl/DoorControl/CommandsRight"
+                }
+            ]
         },
         {
             "name": "DoorLeft_Status_to_Control_StatusLeft",
-            "type": "ASSEMBLY-SW-CONNECTOR"
+            "type": "ASSEMBLY-SW-CONNECTOR",
+            "references": [
+                {
+                    "type": "CONTEXT-COMPONENT-REF",
+                    "value": "/Demo/EDC/EDC/DoorLeft"
+                },
+                {
+                    "type": "TARGET-P-PORT-REF",
+                    "value": "/Demo/Door/Door/Status"
+                },
+                {
+                    "type": "CONTEXT-COMPONENT-REF",
+                    "value": "/Demo/EDC/EDC/Control"
+                },
+                {
+                    "type": "TARGET-R-PORT-REF",
+                    "value": "/Demo/DoorControl/DoorControl/StatusLeft"
+                }
+            ]
         },
         {
             "name": "DoorRight_Status_to_Control_StatusRight",
-            "type": "ASSEMBLY-SW-CONNECTOR"
+            "type": "ASSEMBLY-SW-CONNECTOR",
+            "references": [
+                {
+                    "type": "CONTEXT-COMPONENT-REF",
+                    "value": "/Demo/EDC/EDC/DoorRight"
+                },
+                {
+                    "type": "TARGET-P-PORT-REF",
+                    "value": "/Demo/Door/Door/Status"
+                },
+                {
+                    "type": "CONTEXT-COMPONENT-REF",
+                    "value": "/Demo/EDC/EDC/Control"
+                },
+                {
+                    "type": "TARGET-R-PORT-REF",
+                    "value": "/Demo/DoorControl/DoorControl/StatusRight"
+                }
+            ]
         },
         {
             "name": "IO_Digital_Led_to_Control_Led",
-            "type": "ASSEMBLY-SW-CONNECTOR"
+            "type": "ASSEMBLY-SW-CONNECTOR",
+            "references": [
+                {
+                    "type": "CONTEXT-COMPONENT-REF",
+                    "value": "/Demo/EDC/EDC/IO"
+                },
+                {
+                    "type": "TARGET-P-PORT-REF",
+                    "value": "/Demo/Services/IoHwAb/IoHwAb/Digital_Led"
+                },
+                {
+                    "type": "CONTEXT-COMPONENT-REF",
+                    "value": "/Demo/EDC/EDC/Control"
+                },
+                {
+                    "type": "TARGET-R-PORT-REF",
+                    "value": "/Demo/DoorControl/DoorControl/Led"
+                }
+            ]
         },
         {
             "name": "CombinedStatus_delegate_connector0",
-            "type": "DELEGATION-SW-CONNECTOR"
+            "type": "DELEGATION-SW-CONNECTOR",
+            "references": [
+                {
+                    "type": "P-PORT-IN-COMPOSITION-INSTANCE-REF",
+                    "value": ""
+                },
+                {
+                    "type": "CONTEXT-COMPONENT-REF",
+                    "value": "/Demo/EDC/EDC/Control"
+                },
+                {
+                    "type": "TARGET-P-PORT-REF",
+                    "value": "/Demo/DoorControl/DoorControl/CombinedStatus"
+                },
+                {
+                    "type": "OUTER-PORT-REF",
+                    "value": "/Demo/EDC/EDC/CombinedStatus"
+                }
+            ]
+        }
+    ],
+    "relationships": [
+        {
+            "type": "PROVIDES_INTERFACE",
+            "component": "Door",
+            "port": "Status",
+            "interface_ref": "/Demo/Interfaces/DoorStatus"
+        },
+        {
+            "type": "PROVIDES_INTERFACE",
+            "component": "Door",
+            "port": "Command",
+            "interface_ref": "/Demo/Interfaces/DoorCommands"
+        },
+        {
+            "type": "PROVIDES_INTERFACE",
+            "component": "IoHwAb",
+            "port": "Digital_Led",
+            "interface_ref": "/Demo/Services/IoHwAb/DigitalServiceWrite"
+        },
+        {
+            "type": "PROVIDES_INTERFACE",
+            "component": "DoorControl",
+            "port": "CombinedStatus",
+            "interface_ref": "/Demo/Interfaces/CombinedStatus"
+        },
+        {
+            "type": "REQUIRES_INTERFACE",
+            "component": "DoorControl",
+            "port": "StatusLeft",
+            "interface_ref": "/Demo/Interfaces/DoorStatus"
+        },
+        {
+            "type": "REQUIRES_INTERFACE",
+            "component": "DoorControl",
+            "port": "StatusRight",
+            "interface_ref": "/Demo/Interfaces/DoorStatus"
+        },
+        {
+            "type": "REQUIRES_INTERFACE",
+            "component": "DoorControl",
+            "port": "CommandsLeft",
+            "interface_ref": "/Demo/Interfaces/DoorCommands"
+        },
+        {
+            "type": "REQUIRES_INTERFACE",
+            "component": "DoorControl",
+            "port": "CommandsRight",
+            "interface_ref": "/Demo/Interfaces/DoorCommands"
+        },
+        {
+            "type": "REQUIRES_INTERFACE",
+            "component": "DoorControl",
+            "port": "Led",
+            "interface_ref": "/Demo/Services/IoHwAb/DigitalServiceWrite"
+        },
+        {
+            "type": "CONNECTOR",
+            "connector": "DoorLeft_Command_to_Control_CommandsLeft",
+            "connector_type": "ASSEMBLY-SW-CONNECTOR",
+            "context_components": [
+                "/Demo/EDC/EDC/DoorLeft",
+                "/Demo/EDC/EDC/Control"
+            ],
+            "provider_ports": [
+                "/Demo/Door/Door/Command"
+            ],
+            "required_ports": [
+                "/Demo/DoorControl/DoorControl/CommandsLeft"
+            ]
+        },
+        {
+            "type": "CONNECTOR",
+            "connector": "DoorRight_Command_to_Control_CommandsRight",
+            "connector_type": "ASSEMBLY-SW-CONNECTOR",
+            "context_components": [
+                "/Demo/EDC/EDC/DoorRight",
+                "/Demo/EDC/EDC/Control"
+            ],
+            "provider_ports": [
+                "/Demo/Door/Door/Command"
+            ],
+            "required_ports": [
+                "/Demo/DoorControl/DoorControl/CommandsRight"
+            ]
+        },
+        {
+            "type": "CONNECTOR",
+            "connector": "DoorLeft_Status_to_Control_StatusLeft",
+            "connector_type": "ASSEMBLY-SW-CONNECTOR",
+            "context_components": [
+                "/Demo/EDC/EDC/DoorLeft",
+                "/Demo/EDC/EDC/Control"
+            ],
+            "provider_ports": [
+                "/Demo/Door/Door/Status"
+            ],
+            "required_ports": [
+                "/Demo/DoorControl/DoorControl/StatusLeft"
+            ]
+        },
+        {
+            "type": "CONNECTOR",
+            "connector": "DoorRight_Status_to_Control_StatusRight",
+            "connector_type": "ASSEMBLY-SW-CONNECTOR",
+            "context_components": [
+                "/Demo/EDC/EDC/DoorRight",
+                "/Demo/EDC/EDC/Control"
+            ],
+            "provider_ports": [
+                "/Demo/Door/Door/Status"
+            ],
+            "required_ports": [
+                "/Demo/DoorControl/DoorControl/StatusRight"
+            ]
+        },
+        {
+            "type": "CONNECTOR",
+            "connector": "IO_Digital_Led_to_Control_Led",
+            "connector_type": "ASSEMBLY-SW-CONNECTOR",
+            "context_components": [
+                "/Demo/EDC/EDC/IO",
+                "/Demo/EDC/EDC/Control"
+            ],
+            "provider_ports": [
+                "/Demo/Services/IoHwAb/IoHwAb/Digital_Led"
+            ],
+            "required_ports": [
+                "/Demo/DoorControl/DoorControl/Led"
+            ]
+        },
+        {
+            "type": "CONNECTOR",
+            "connector": "CombinedStatus_delegate_connector0",
+            "connector_type": "DELEGATION-SW-CONNECTOR",
+            "context_components": [
+                "/Demo/EDC/EDC/Control"
+            ],
+            "provider_ports": [
+                "/Demo/DoorControl/DoorControl/CombinedStatus"
+            ],
+            "required_ports": []
         }
     ]
 }
