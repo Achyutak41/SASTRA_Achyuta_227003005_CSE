@@ -1,0 +1,245 @@
+{
+  "summary": {
+    "total_tests": 15,
+    "passed_tests": 15,
+    "failed_tests": 0,
+    "overall_accuracy_percent": 100.0,
+    "supported_questions": 10,
+    "supported_answer_accuracy_percent": 100.0,
+    "unsupported_questions": 5,
+    "refusal_accuracy_percent": 100.0,
+    "retrieval_accuracy_percent": 100.0,
+    "average_response_time_seconds": 19.6102
+  },
+  "results": [
+    {
+      "id": "Q01",
+      "question": "Which component provides DigitalServiceWrite?",
+      "expected_behavior": "answer",
+      "expected_keywords": [
+        "IoHwAb",
+        "DigitalServiceWrite",
+        "Digital_Led"
+      ],
+      "answer": "The component that provides the DigitalServiceWrite interface is IoHwAb, through its provided port Digital_Led.",
+      "confidence": "HIGH",
+      "evidence_sufficient": true,
+      "top_score": 0.8969,
+      "response_time_seconds": 39.9888,
+      "status": "PASS",
+      "missing_keywords": []
+    },
+    {
+      "id": "Q02",
+      "question": "Which interface does DoorControl require through StatusLeft?",
+      "expected_behavior": "answer",
+      "expected_keywords": [
+        "DoorControl",
+        "DoorStatus",
+        "StatusLeft"
+      ],
+      "answer": "The interface that the DoorControl requires through the StatusLeft port is /Demo/Interfaces/DoorStatus.",
+      "confidence": "HIGH",
+      "evidence_sufficient": true,
+      "top_score": 1.0828,
+      "response_time_seconds": 18.868,
+      "status": "PASS",
+      "missing_keywords": []
+    },
+    {
+      "id": "Q03",
+      "question": "What interfaces does the Door component provide?",
+      "expected_behavior": "answer",
+      "expected_keywords": [
+        "Door",
+        "DoorStatus",
+        "DoorCommands"
+      ],
+      "answer": "The Door component provides the following interfaces:\n\n1. /Demo/Interfaces/DoorStatus through its provided port Status.\n2. /Demo/Interfaces/DoorCommands through its provided port Command.",
+      "confidence": "HIGH",
+      "evidence_sufficient": true,
+      "top_score": 1.0174,
+      "response_time_seconds": 26.1057,
+      "status": "PASS",
+      "missing_keywords": []
+    },
+    {
+      "id": "Q04",
+      "question": "What runnable entities are present in the architecture?",
+      "expected_behavior": "answer",
+      "expected_keywords": [
+        "DoorMain",
+        "SetLocked",
+        "DigitalWrite",
+        "Main"
+      ],
+      "answer": "The AUTOSAR architecture contains the following runnable entities: DoorMain, SetLocked, DigitalWrite, and Main.",
+      "confidence": "MEDIUM",
+      "evidence_sufficient": true,
+      "top_score": 0.7242,
+      "response_time_seconds": 15.8751,
+      "status": "PASS",
+      "missing_keywords": []
+    },
+    {
+      "id": "Q05",
+      "question": "Which interface is provided through the CombinedStatus port?",
+      "expected_behavior": "answer",
+      "expected_keywords": [
+        "CombinedStatus"
+      ],
+      "answer": "The interface provided through the CombinedStatus port is /Demo/Interfaces/CombinedStatus.",
+      "confidence": "HIGH",
+      "evidence_sufficient": true,
+      "top_score": 0.9914,
+      "response_time_seconds": 21.7228,
+      "status": "PASS",
+      "missing_keywords": []
+    },
+    {
+      "id": "Q06",
+      "question": "Which component provides the Digital_Led port?",
+      "expected_behavior": "answer",
+      "expected_keywords": [
+        "IoHwAb",
+        "Digital_Led"
+      ],
+      "answer": "The component that provides the Digital_Led port is IoHwAb.",
+      "confidence": "HIGH",
+      "evidence_sufficient": true,
+      "top_score": 0.9392,
+      "response_time_seconds": 21.7723,
+      "status": "PASS",
+      "missing_keywords": []
+    },
+    {
+      "id": "Q07",
+      "question": "Which component requires the Led port?",
+      "expected_behavior": "answer",
+      "expected_keywords": [
+        "DoorControl",
+        "Led"
+      ],
+      "answer": "The component that requires the Led port is the DoorControl component. This is based on the evidence provided in chunk_004, which states that the DoorControl component requires the Led port through the interface reference /Demo/Services/IoHwAb/DigitalServiceWrite.",
+      "confidence": "MEDIUM",
+      "evidence_sufficient": true,
+      "top_score": 0.818,
+      "response_time_seconds": 31.7369,
+      "status": "PASS",
+      "missing_keywords": []
+    },
+    {
+      "id": "Q08",
+      "question": "Which component requires CommandsLeft?",
+      "expected_behavior": "answer",
+      "expected_keywords": [
+        "DoorControl",
+        "CommandsLeft"
+      ],
+      "answer": "The component that requires CommandsLeft is the DoorControl component. This is inferred from the evidence in chunk_022, where it is stated that the DoorControl component requires the interface /Demo/Interfaces/DoorCommands through its required port CommandsLeft.",
+      "confidence": "MEDIUM",
+      "evidence_sufficient": true,
+      "top_score": 0.8112,
+      "response_time_seconds": 37.7057,
+      "status": "PASS",
+      "missing_keywords": []
+    },
+    {
+      "id": "Q09",
+      "question": "Which component requires CommandsRight?",
+      "expected_behavior": "answer",
+      "expected_keywords": [
+        "DoorControl",
+        "CommandsRight"
+      ],
+      "answer": "The component that requires the CommandsRight interface is the DoorControl component, as stated in the evidence:\n\n[Chunk ID: chunk_023]\nEvidence: The software component DoorControl REQUIRES the interface /Demo/Interfaces/DoorCommands through its required port CommandsRight. This is a REQUIRES_INTERFACE relationship.\n\n[Chunk ID: chunk_004]\nEvidence: It requires port CommandsRight through interface reference /Demo/Interfaces/DoorCommands.\n\nTherefore, the DoorControl component requires the CommandsRight interface through its required port CommandsRight.",
+      "confidence": "MEDIUM",
+      "evidence_sufficient": true,
+      "top_score": 0.7524,
+      "response_time_seconds": 52.1919,
+      "status": "PASS",
+      "missing_keywords": []
+    },
+    {
+      "id": "Q10",
+      "question": "Which component provides the Status port?",
+      "expected_behavior": "answer",
+      "expected_keywords": [
+        "Door",
+        "Status"
+      ],
+      "answer": "The component that provides the Status port is the Door component, through its provided port Status. (Evidence: chunk_002)",
+      "confidence": "MEDIUM",
+      "evidence_sufficient": true,
+      "top_score": 0.8486,
+      "response_time_seconds": 28.0566,
+      "status": "PASS",
+      "missing_keywords": []
+    },
+    {
+      "id": "Q11",
+      "question": "What is the maximum CPU frequency of the ECU?",
+      "expected_behavior": "refuse",
+      "expected_keywords": [],
+      "answer": "The provided AUTOSAR knowledge base does not contain sufficient evidence to answer this question.",
+      "confidence": "LOW",
+      "evidence_sufficient": false,
+      "top_score": 0.0925,
+      "response_time_seconds": 0.033,
+      "status": "PASS",
+      "missing_keywords": []
+    },
+    {
+      "id": "Q12",
+      "question": "What is the battery capacity of the vehicle?",
+      "expected_behavior": "refuse",
+      "expected_keywords": [],
+      "answer": "The provided AUTOSAR knowledge base does not contain sufficient evidence to answer this question.",
+      "confidence": "LOW",
+      "evidence_sufficient": false,
+      "top_score": 0.138,
+      "response_time_seconds": 0.0214,
+      "status": "PASS",
+      "missing_keywords": []
+    },
+    {
+      "id": "Q13",
+      "question": "What is the operating temperature of the ECU?",
+      "expected_behavior": "refuse",
+      "expected_keywords": [],
+      "answer": "The provided AUTOSAR knowledge base does not contain sufficient evidence to answer this question.",
+      "confidence": "LOW",
+      "evidence_sufficient": false,
+      "top_score": 0.1404,
+      "response_time_seconds": 0.0252,
+      "status": "PASS",
+      "missing_keywords": []
+    },
+    {
+      "id": "Q14",
+      "question": "What is the vehicle top speed?",
+      "expected_behavior": "refuse",
+      "expected_keywords": [],
+      "answer": "The provided AUTOSAR knowledge base does not contain sufficient evidence to answer this question.",
+      "confidence": "LOW",
+      "evidence_sufficient": false,
+      "top_score": 0.139,
+      "response_time_seconds": 0.0232,
+      "status": "PASS",
+      "missing_keywords": []
+    },
+    {
+      "id": "Q15",
+      "question": "What is the CAN bus bitrate used by the ECU?",
+      "expected_behavior": "refuse",
+      "expected_keywords": [],
+      "answer": "The provided AUTOSAR knowledge base does not contain sufficient evidence to answer this question.",
+      "confidence": "LOW",
+      "evidence_sufficient": false,
+      "top_score": 0.3293,
+      "response_time_seconds": 0.0269,
+      "status": "PASS",
+      "missing_keywords": []
+    }
+  ]
+}

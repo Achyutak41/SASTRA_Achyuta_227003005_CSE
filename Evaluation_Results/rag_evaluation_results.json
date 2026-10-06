@@ -23,7 +23,7 @@
         "DigitalServiceWrite",
         "Digital_Led"
       ],
-      "answer": "The software component IoHwAb provides the DigitalServiceWrite interface through its provided port Digital_Led.",
+      "answer": "The component that provides the DigitalServiceWrite interface is IoHwAb, through its provided port Digital_Led.",
       "confidence": "HIGH",
       "top_retrieval_score": 0.8969283390045166,
       "retrieved_chunks": [
@@ -45,7 +45,7 @@
         "DoorStatus",
         "StatusLeft"
       ],
-      "answer": "The interface that the DoorControl requires through StatusLeft is /Demo/Interfaces/DoorStatus.",
+      "answer": "The interface that the DoorControl requires through the StatusLeft port is /Demo/Interfaces/DoorStatus.",
       "confidence": "HIGH",
       "top_retrieval_score": 1.0828242778778077,
       "retrieved_chunks": [
@@ -67,7 +67,7 @@
         "DoorStatus",
         "Status"
       ],
-      "answer": "The Door component provides the interfaces /Demo/Interfaces/DoorStatus and /Demo/Interfaces/DoorCommands.",
+      "answer": "The Door component provides the following interfaces:\n\n1. /Demo/Interfaces/DoorStatus through its provided port Status.\n2. /Demo/Interfaces/DoorCommands through its provided port Command.\n\nAdditional information:\n- The DoorControl component also provides the interface /Demo/Interfaces/CombinedStatus through its provided port CombinedStatus.\n- The DoorStatus interface is a SENDER-RECEIVER-INTERFACE.",
       "confidence": "HIGH",
       "top_retrieval_score": 1.0174044752120972,
       "retrieved_chunks": [
@@ -90,7 +90,7 @@
         "DigitalWrite",
         "Main"
       ],
-      "answer": "The provided AUTOSAR knowledge base contains the following runnable entities: DoorMain, SetLocked, DigitalWrite, and Main.",
+      "answer": "The AUTOSAR architecture contains the following runnable entities: DoorMain, SetLocked, DigitalWrite, and Main.",
       "confidence": "MEDIUM",
       "top_retrieval_score": 0.7242111492156983,
       "retrieved_chunks": [

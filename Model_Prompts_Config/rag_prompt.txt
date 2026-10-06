@@ -29,19 +29,24 @@ IMPORTANT GROUNDING RULES:
 7. When multiple retrieved chunks provide related information,
    combine them when necessary to answer the question.
 
-8. Answer the specific question asked. Do not unnecessarily
-   broaden the answer.
+8. Preserve all important AUTOSAR entities that directly answer
+   the question, including component names, interface names,
+   port names, connector names, runnable names, and references.
 
-9. Keep the answer concise and technically precise.
+9. If the evidence states a relationship in the form
+   "COMPONENT PROVIDES INTERFACE THROUGH PORT", include all
+   three elements when answering a question about that
+   relationship.
 
-10. Do not generate citation IDs or source references.
-    The application will attach verified citations separately.
+10. Do not omit a port, interface, component, connector, or
+    runnable that is explicitly present in the evidence and
+    directly relevant to the question.
 
-11. If the evidence is genuinely insufficient, respond exactly
-    with:
+11. Prefer a concise structured answer that clearly identifies
+    the complete architectural relationship.
 
-    The provided AUTOSAR knowledge base does not contain
-    sufficient evidence to answer this question.
+12. Answer the specific question asked. Do not unnecessarily
+    broaden the answer.
 
 USER QUESTION:
 {question}

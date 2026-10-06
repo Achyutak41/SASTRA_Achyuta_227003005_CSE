@@ -1,0 +1,126 @@
+[
+  {
+    "id": "Q01",
+    "question": "Which component provides DigitalServiceWrite?",
+    "expected_keywords": [
+      "IoHwAb",
+      "DigitalServiceWrite",
+      "Digital_Led"
+    ],
+    "expected_behavior": "answer"
+  },
+  {
+    "id": "Q02",
+    "question": "Which interface does DoorControl require through StatusLeft?",
+    "expected_keywords": [
+      "DoorControl",
+      "DoorStatus",
+      "StatusLeft"
+    ],
+    "expected_behavior": "answer"
+  },
+  {
+    "id": "Q03",
+    "question": "What interfaces does the Door component provide?",
+    "expected_keywords": [
+      "Door",
+      "DoorStatus",
+      "DoorCommands"
+    ],
+    "expected_behavior": "answer"
+  },
+  {
+    "id": "Q04",
+    "question": "What runnable entities are present in the architecture?",
+    "expected_keywords": [
+      "DoorMain",
+      "SetLocked",
+      "DigitalWrite",
+      "Main"
+    ],
+    "expected_behavior": "answer"
+  },
+  {
+    "id": "Q05",
+    "question": "Which interface is provided through the CombinedStatus port?",
+    "expected_keywords": [
+      "CombinedStatus"
+    ],
+    "expected_behavior": "answer"
+  },
+  {
+    "id": "Q06",
+    "question": "Which component provides the Digital_Led port?",
+    "expected_keywords": [
+      "IoHwAb",
+      "Digital_Led"
+    ],
+    "expected_behavior": "answer"
+  },
+  {
+    "id": "Q07",
+    "question": "Which component requires the Led port?",
+    "expected_keywords": [
+      "DoorControl",
+      "Led"
+    ],
+    "expected_behavior": "answer"
+  },
+  {
+    "id": "Q08",
+    "question": "Which component requires CommandsLeft?",
+    "expected_keywords": [
+      "DoorControl",
+      "CommandsLeft"
+    ],
+    "expected_behavior": "answer"
+  },
+  {
+    "id": "Q09",
+    "question": "Which component requires CommandsRight?",
+    "expected_keywords": [
+      "DoorControl",
+      "CommandsRight"
+    ],
+    "expected_behavior": "answer"
+  },
+  {
+    "id": "Q10",
+    "question": "Which component provides the Status port?",
+    "expected_keywords": [
+      "Door",
+      "Status"
+    ],
+    "expected_behavior": "answer"
+  },
+  {
+    "id": "Q11",
+    "question": "What is the maximum CPU frequency of the ECU?",
+    "expected_keywords": [],
+    "expected_behavior": "refuse"
+  },
+  {
+    "id": "Q12",
+    "question": "What is the battery capacity of the vehicle?",
+    "expected_keywords": [],
+    "expected_behavior": "refuse"
+  },
+  {
+    "id": "Q13",
+    "question": "What is the operating temperature of the ECU?",
+    "expected_keywords": [],
+    "expected_behavior": "refuse"
+  },
+  {
+    "id": "Q14",
+    "question": "What is the vehicle top speed?",
+    "expected_keywords": [],
+    "expected_behavior": "refuse"
+  },
+  {
+    "id": "Q15",
+    "question": "What is the CAN bus bitrate used by the ECU?",
+    "expected_keywords": [],
+    "expected_behavior": "refuse"
+  }
+]
