@@ -1,119 +1,110 @@
 {
     "file_name": "EcuExtract.arxml",
     "root_element": "AUTOSAR",
-    "named_elements": [
-        "Demo",
-        "Door",
-        "Door",
-        "Status",
-        "Command",
-        "DoorInternals",
-        "timingEvent_0_1",
-        "Command_SetLock",
+    "software_components": [
+        {
+            "name": "Door",
+            "type": "APPLICATION-SW-COMPONENT-TYPE",
+            "ports": [
+                {
+                    "name": "Status",
+                    "type": "P-PORT-PROTOTYPE"
+                },
+                {
+                    "name": "Command",
+                    "type": "P-PORT-PROTOTYPE"
+                }
+            ]
+        },
+        {
+            "name": "IoHwAb",
+            "type": "SERVICE-SW-COMPONENT-TYPE",
+            "ports": [
+                {
+                    "name": "Digital_Led",
+                    "type": "P-PORT-PROTOTYPE"
+                }
+            ]
+        },
+        {
+            "name": "DoorControl",
+            "type": "APPLICATION-SW-COMPONENT-TYPE",
+            "ports": [
+                {
+                    "name": "StatusLeft",
+                    "type": "R-PORT-PROTOTYPE"
+                },
+                {
+                    "name": "StatusRight",
+                    "type": "R-PORT-PROTOTYPE"
+                },
+                {
+                    "name": "CommandsLeft",
+                    "type": "R-PORT-PROTOTYPE"
+                },
+                {
+                    "name": "CommandsRight",
+                    "type": "R-PORT-PROTOTYPE"
+                },
+                {
+                    "name": "Led",
+                    "type": "R-PORT-PROTOTYPE"
+                },
+                {
+                    "name": "CombinedStatus",
+                    "type": "P-PORT-PROTOTYPE"
+                }
+            ]
+        }
+    ],
+    "interfaces": [
+        {
+            "name": "DigitalServiceWrite",
+            "type": "CLIENT-SERVER-INTERFACE"
+        },
+        {
+            "name": "DoorStatus",
+            "type": "SENDER-RECEIVER-INTERFACE"
+        },
+        {
+            "name": "DoorCommands",
+            "type": "CLIENT-SERVER-INTERFACE"
+        },
+        {
+            "name": "CombinedStatus",
+            "type": "SENDER-RECEIVER-INTERFACE"
+        }
+    ],
+    "runnables": [
         "DoorMain",
-        "dataWriteAccess_DoorMain_Status_Locked",
-        "dataWriteAccess_DoorMain_Status_Open",
         "SetLocked",
-        "DoorImplementation",
-        "src",
-        "resourceConsumption",
-        "Services",
-        "IoHwAb",
-        "IoHwAb_SignalType_",
-        "dummy_IoHwAb_SignalType_",
-        "dummyMappingSet",
-        "SignalQuality",
-        "SignalQuality_def",
-        "DigitalLevel",
-        "DigitalLevel_def",
-        "DigitalServiceWrite",
-        "Write",
-        "Level",
-        "E_OK",
-        "E_NOT_OK",
-        "IoHwAb",
-        "Digital_Led",
-        "IoHwAbBehavior",
-        "Digital_Led_Write",
         "DigitalWrite",
-        "IoHwAbImpl",
-        "src",
-        "resourceConsumption",
-        "Interfaces",
-        "DoorStatus",
-        "Locked",
-        "Open",
-        "DoorCommands",
-        "SetLock",
-        "Locked",
-        "CombinedStatus",
-        "LockedLeft",
-        "OpenLeft",
-        "LockedRight",
-        "OpenRight",
-        "DoorControl",
-        "DoorControl",
-        "StatusLeft",
-        "StatusRight",
-        "CommandsLeft",
-        "CommandsRight",
-        "Led",
-        "CombinedStatus",
-        "DoorControlInternals",
-        "timingEvent_0_1",
-        "Main",
-        "dataReadAccess_Main_StatusLeft_Locked",
-        "dataReadAccess_Main_StatusLeft_Open",
-        "dataReadAccess_Main_StatusRight_Locked",
-        "dataReadAccess_Main_StatusRight_Open",
-        "dataWriteAccess_Main_CombinedStatus_LockedLeft",
-        "dataWriteAccess_Main_CombinedStatus_OpenLeft",
-        "dataWriteAccess_Main_CombinedStatus_LockedRight",
-        "dataWriteAccess_Main_CombinedStatus_OpenRight",
-        "serverCallPoint_Main_CommandsLeft_SetLock",
-        "serverCallPoint_Main_CommandsRight_SetLock",
-        "serverCallPoint_Main_Led_Write",
-        "DoorControlImplementation",
-        "src",
-        "resourceConsumption",
-        "EDC",
-        "EDC",
-        "CombinedStatus",
-        "DoorLeft",
-        "DoorRight",
-        "Control",
-        "IO",
-        "DoorLeft_Command_to_Control_CommandsLeft",
-        "DoorRight_Command_to_Control_CommandsRight",
-        "DoorLeft_Status_to_Control_StatusLeft",
-        "DoorRight_Status_to_Control_StatusRight",
-        "IO_Digital_Led_to_Control_Led",
-        "CombinedStatus_delegate_connector0",
-        "EDCEcuExtract",
-        "ImplementationMappings",
-        "DoorLeftMapping",
-        "DoorRightMapping",
-        "ControlMapping",
-        "IOMapping",
-        "SignalMappings",
-        "EDCPrototype",
-        "SystemSignals",
-        "CombinedStatusLockedLeftSSig",
-        "CombinedStatusOpenLeftSSig",
-        "CombinedStatusLockedRightSSig",
-        "CombinedStatusOpenRightSSig",
-        "Communication",
-        "CombinedStatusLockedLeftISig",
-        "CombinedStatusLockedLeftIPdu",
-        "CombinedStatusLockedLeftMapping",
-        "CombinedStatusOpenLeftISig",
-        "CombinedStatusOpenLeftIPdu",
-        "CombinedStatusOpenLeftMapping",
-        "CombinedStatusLockedRightISig",
-        "CombinedStatusLockedRightIPdu",
-        "CombinedStatusLockedRightMapping",
-        "CombinedStatusOpenRightISig",
-        "CombinedStatusOpenRightIPdu",
-        "CombinedStatusOpenRightMapping"
+        "Main"
+    ],
+    "connectors": [
+        {
+            "name": "DoorLeft_Command_to_Control_CommandsLeft",
+            "type": "ASSEMBLY-SW-CONNECTOR"
+        },
+        {
+            "name": "DoorRight_Command_to_Control_CommandsRight",
+            "type": "ASSEMBLY-SW-CONNECTOR"
+        },
+        {
+            "name": "DoorLeft_Status_to_Control_StatusLeft",
+            "type": "ASSEMBLY-SW-CONNECTOR"
+        },
+        {
+            "name": "DoorRight_Status_to_Control_StatusRight",
+            "type": "ASSEMBLY-SW-CONNECTOR"
+        },
+        {
+            "name": "IO_Digital_Led_to_Control_Led",
+            "type": "ASSEMBLY-SW-CONNECTOR"
+        },
+        {
+            "name": "CombinedStatus_delegate_connector0",
+            "type": "DELEGATION-SW-CONNECTOR"
+        }
     ]
 }
