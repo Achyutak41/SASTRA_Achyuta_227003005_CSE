@@ -31,7 +31,7 @@ The system will use Retrieval-Augmented Generation (RAG) to provide grounded ans
 ## Project Structure
 
 ```text
-AUTOSAR-HLD-AI-Assistant/
+SASTRA_Achyuta_227003005_CSE/
 │
 ├── Synopsis/
 ├── Input_Data/
