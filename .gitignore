@@ -47,3 +47,21 @@ tmp/
 
 # Jupyter
 .ipynb_checkpoints/
+
+# Runtime audit logs
+Evaluation_Results/audit_logs/
+
+# Uploaded HLD documents
+Input_Data/uploads/*
+
+# Generated processed documents
+Input_Data/processed/*
+
+# Keep folder structure
+!Input_Data/uploads/.gitkeep
+!Input_Data/processed/.gitkeep
+
+# Runtime audit logs
+Evaluation_Results/audit_logs/*
+
+"C:\Users\achyu\Downloads\AUTOSAR_EXP_LayeredSoftwareArchitecture.pdf"

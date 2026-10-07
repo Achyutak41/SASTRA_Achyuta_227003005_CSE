@@ -3,4 +3,9 @@ faiss-cpu
 ollama
 streamlit
 numpy
-torchvision
+torchvision 
+Flask 
+flask-cors 
+PyMuPDF 
+pytesseract 
+Pillow

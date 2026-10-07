@@ -2,6 +2,7 @@ from pathlib import Path
 import sys
 
 import ollama
+from audit_logger import log_query
 
 
 # =============================================================
@@ -281,6 +282,13 @@ def answer_question(
 
     citations = build_citations(
         results[:3]
+    )
+    log_query(
+        question=question,
+        answer=answer,
+        confidence=confidence,
+        evidence_sufficient=sufficient,
+        citations=citations
     )
 
     # ---------------------------------------------------------
