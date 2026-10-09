@@ -1,0 +1,50 @@
+[
+  {
+    "vector_index": 0,
+    "chunk_id": 255,
+    "document_id": 4,
+    "user_id": 2,
+    "page_number": 1,
+    "section_title": null,
+    "chunking_strategy": "fixed",
+    "embedding_model": "minilm",
+    "embedding_model_name": "sentence-transformers/all-MiniLM-L6-v2",
+    "text": "BHUVANESHWARI D\n+91 9944109897 | bhuvaneshwarid48@gmail.com | Kumbakonam,Tamil Nadu, India \nlinkedin.com/in/bhuvaneshwarid48  |    github.com/Bhuvaneshwari-Dhanabal\n \n \nPython | LangChain | LLM | Flask | RESTful API | Agentic Pipeline\n \nPyTorch | ResNet-50 | SE Attention | CBAM | Mamba | Deep Learning\n \nPython | Scikit-learn | K-Means | Pandas | Streamlit | Matplotlib | ReportLab\n2026\n2025\n       2025\nEDUCATION\nTamil (Native) | English (Professional)\nIndependent Work Capability | Team Collaboration | Adaptability | Analytical Thinking | Client Communication |\nExcellence-first Mindset\nTECHNICAL SKILLS\nFinal-year B.Tech CSE student at SASTRA Deemed University with hands-on experience in data analytics, ML-powered\ndecision intelligence, and AI-driven business insights. Proficient in Python, SQL, Scikit-learn, Pandas, and LangChain. Built\nend-to-end analytics systems delivering actionable recommendations for retail and healthcare domains. Strong at\ntranslating complex business problems int"
+  },
+  {
+    "vector_index": 1,
+    "chunk_id": 256,
+    "document_id": 4,
+    "user_id": 2,
+    "page_number": 1,
+    "section_title": null,
+    "chunking_strategy": "fixed",
+    "embedding_model": "minilm",
+    "embedding_model_name": "sentence-transformers/all-MiniLM-L6-v2",
+    "text": "-to-end analytics systems delivering actionable recommendations for retail and healthcare domains. Strong at\ntranslating complex business problems into scalable AI solutions and communicating insights to both technical and non-\ntechnical stakeholders.\nDiabetes Risk Intelligence System\nPROJECTS & EXPERIENCE\nAK-Net– Attention-BasedFeature Fusion for Medical Segmentation\nRetailSense Agent – Agentic AI for Smart Retail Decision Intelligence\nB.Tech Computer Science and Engineering | CGPA: 7.2 \nSASTRA Deemed University, Kumbakonam\nHigher Secondary Education | 86.5%\nChrist The King Girls  Matriculation  Higher  Secondary  School\n2023\n2027\n• Built agentic AI web application using LangChain and LLMs to automate retail demand analysis, inventory insights, and\nbusiness recommendations — eliminating manual decision-making effort for retail operations.\n• Designed multi-step AI orchestration pipeline processing retail data end-to-end, delivering natural language business\ninsights aligned with enterp"
+  },
+  {
+    "vector_index": 2,
+    "chunk_id": 257,
+    "document_id": 4,
+    "user_id": 2,
+    "page_number": 1,
+    "section_title": null,
+    "chunking_strategy": "fixed",
+    "embedding_model": "minilm",
+    "embedding_model_name": "sentence-transformers/all-MiniLM-L6-v2",
+    "text": ".\n• Designed multi-step AI orchestration pipeline processing retail data end-to-end, delivering natural language business\ninsights aligned with enterprise decision intelligence use cases.\n• Designed AK-Net using ResNet-50 encoder with SE and CBAM dual-attention mechanisms, achieving improved\nsegmentation performance over baseline U-Net across 4 medical datasets — Synapse, CVC-ClinicDB and ISIC-2017.\n• Implemented Mamba bottleneck for long-range dependency modeling and contributed to research paper covering\narchitecture design, experimental analysis, and results for journal submission.\n• Processed 768 patient records with end-to-end ML pipeline — handling missing clinical values via median imputation and\nengineering custom Risk Scoring engine (Glucose×0.4 + BMI×0.3 + Age×0.3) to classify patients into 3 risk groups with\nscores normalized to 0–100.\n• Deployed real-time Streamlit dashboard with K-Means patient segmentation, anomaly alerts, personalized health\nrecommendations, and one-clic"
+  },
+  {
+    "vector_index": 3,
+    "chunk_id": 258,
+    "document_id": 4,
+    "user_id": 2,
+    "page_number": 1,
+    "section_title": null,
+    "chunking_strategy": "fixed",
+    "embedding_model": "minilm",
+    "embedding_model_name": "sentence-transformers/all-MiniLM-L6-v2",
+    "text": "o 0–100.\n• Deployed real-time Streamlit dashboard with K-Means patient segmentation, anomaly alerts, personalized health\nrecommendations, and one-click downloadable PDF reports — enabling last-mile clinical decision support.\nPROFESSIONAL SUMMARY\nSOFT SKILLS\nLANGUAGES\nLanguages : Python, C++, Java, SQL\nAI / ML : PyTorch, TensorFlow, Scikit-learn, LangChain, NLP, Computer Vision\nDeep Learning : CNN, U-Net, ResNet-50, SE Attention, CBAM, Mamba Architecture\nAgentic AI : LangChain, Multi-step AI Orchestration, Agentic Pipeline Design\nData & Analytics : Pandas, NumPy, Matplotlib, Seaborn, Feature Engineering, Statistical Analysis\nTools : Git, GitHub, Streamlit, Postman, Jupyter Notebook, Kaggle, VS Code"
+  }
+]

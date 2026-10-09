@@ -9,4 +9,5 @@ flask-cors
 PyMuPDF 
 pytesseract 
 Pillow
-requests
+requests 
+gunicorn

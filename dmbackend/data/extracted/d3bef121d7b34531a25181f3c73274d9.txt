@@ -1,0 +1,55 @@
+BHUVANESHWARI D
++91 9944109897 | bhuvaneshwarid48@gmail.com | Kumbakonam,Tamil Nadu, India 
+linkedin.com/in/bhuvaneshwarid48  |    github.com/Bhuvaneshwari-Dhanabal
+ 
+ 
+Python | LangChain | LLM | Flask | RESTful API | Agentic Pipeline
+ 
+PyTorch | ResNet-50 | SE Attention | CBAM | Mamba | Deep Learning
+ 
+Python | Scikit-learn | K-Means | Pandas | Streamlit | Matplotlib | ReportLab
+2026
+2025
+       2025
+EDUCATION
+Tamil (Native) | English (Professional)
+Independent Work Capability | Team Collaboration | Adaptability | Analytical Thinking | Client Communication |
+Excellence-first Mindset
+TECHNICAL SKILLS
+Final-year B.Tech CSE student at SASTRA Deemed University with hands-on experience in data analytics, ML-powered
+decision intelligence, and AI-driven business insights. Proficient in Python, SQL, Scikit-learn, Pandas, and LangChain. Built
+end-to-end analytics systems delivering actionable recommendations for retail and healthcare domains. Strong at
+translating complex business problems into scalable AI solutions and communicating insights to both technical and non-
+technical stakeholders.
+Diabetes Risk Intelligence System
+PROJECTS & EXPERIENCE
+AK-Net– Attention-BasedFeature Fusion for Medical Segmentation
+RetailSense Agent – Agentic AI for Smart Retail Decision Intelligence
+B.Tech Computer Science and Engineering | CGPA: 7.2 
+SASTRA Deemed University, Kumbakonam
+Higher Secondary Education | 86.5%
+Christ The King Girls  Matriculation  Higher  Secondary  School
+2023
+2027
+• Built agentic AI web application using LangChain and LLMs to automate retail demand analysis, inventory insights, and
+business recommendations — eliminating manual decision-making effort for retail operations.
+• Designed multi-step AI orchestration pipeline processing retail data end-to-end, delivering natural language business
+insights aligned with enterprise decision intelligence use cases.
+• Designed AK-Net using ResNet-50 encoder with SE and CBAM dual-attention mechanisms, achieving improved
+segmentation performance over baseline U-Net across 4 medical datasets — Synapse, CVC-ClinicDB and ISIC-2017.
+• Implemented Mamba bottleneck for long-range dependency modeling and contributed to research paper covering
+architecture design, experimental analysis, and results for journal submission.
+• Processed 768 patient records with end-to-end ML pipeline — handling missing clinical values via median imputation and
+engineering custom Risk Scoring engine (Glucose×0.4 + BMI×0.3 + Age×0.3) to classify patients into 3 risk groups with
+scores normalized to 0–100.
+• Deployed real-time Streamlit dashboard with K-Means patient segmentation, anomaly alerts, personalized health
+recommendations, and one-click downloadable PDF reports — enabling last-mile clinical decision support.
+PROFESSIONAL SUMMARY
+SOFT SKILLS
+LANGUAGES
+Languages : Python, C++, Java, SQL
+AI / ML : PyTorch, TensorFlow, Scikit-learn, LangChain, NLP, Computer Vision
+Deep Learning : CNN, U-Net, ResNet-50, SE Attention, CBAM, Mamba Architecture
+Agentic AI : LangChain, Multi-step AI Orchestration, Agentic Pipeline Design
+Data & Analytics : Pandas, NumPy, Matplotlib, Seaborn, Feature Engineering, Statistical Analysis
+Tools : Git, GitHub, Streamlit, Postman, Jupyter Notebook, Kaggle, VS Code

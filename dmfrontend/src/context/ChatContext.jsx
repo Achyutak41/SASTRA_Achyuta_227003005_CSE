@@ -9,10 +9,17 @@ import {
 } from "react";
 
 import api from "../services/api";
+import useAuth from "../hooks/useAuth";
 
 const ChatContext = createContext(null);
 
 export function ChatProvider({ children }) {
+  // Hooks must be called inside the component function.
+  const {
+    isAuthenticated,
+    loading: authLoading,
+  } = useAuth();
+
   const [conversations, setConversations] = useState([]);
   const [activeChat, setActiveChat] = useState(null);
   const [loading, setLoading] = useState(true);
@@ -32,7 +39,9 @@ export function ChatProvider({ children }) {
       setActiveChat((currentId) => {
         if (
           currentId != null &&
-          saved.some((chat) => String(chat.id) === String(currentId))
+          saved.some(
+            (chat) => String(chat.id) === String(currentId)
+          )
         ) {
           return currentId;
         }
@@ -52,17 +61,38 @@ export function ChatProvider({ children }) {
     }
   }, []);
 
+  // Load history when authentication restoration finishes
+  // or when the user becomes authenticated.
   useEffect(() => {
-    // The Axios interceptor reads the existing autosar_token.
-    if (!localStorage.getItem("autosar_token")) {
+    if (authLoading) {
+      setLoading(true);
+      return;
+    }
+
+    if (!isAuthenticated) {
       setConversations([]);
       setActiveChat(null);
+      setChatError("");
       setLoading(false);
       return;
     }
 
-    loadConversations().catch(() => {});
-  }, [loadConversations]);
+    let cancelled = false;
+
+    const fetchConversations = async () => {
+      try {
+        await loadConversations();
+      } catch {
+        // The error is recorded by loadConversations.
+      }
+    };
+
+    fetchConversations();
+
+    return () => {
+      cancelled = true;
+    };
+  }, [isAuthenticated, authLoading, loadConversations]);
 
   const currentChat = useMemo(
     () =>
@@ -87,17 +117,24 @@ export function ChatProvider({ children }) {
       messages: [],
     };
 
-    setConversations((previous) => [created, ...previous]);
+    setConversations((previous) => [
+      created,
+      ...previous,
+    ]);
+
     setActiveChat(created.id);
 
     return created;
   }, []);
 
-  // Retrieve messages from the database when a chat is selected.
+  // Retrieve saved messages when a conversation is selected.
   const selectChat = useCallback(async (chatId) => {
     setChatError("");
 
-    const response = await api.get(`/conversations/${chatId}`);
+    const response = await api.get(
+      `/conversations/${chatId}`
+    );
+
     const detail = response.data.conversation;
     const savedMessages = response.data.messages || [];
 
@@ -105,7 +142,6 @@ export function ChatProvider({ children }) {
       ...detail,
       messages: savedMessages.map((message) => ({
         ...message,
-        id: message.id,
         role: message.role,
         content: message.content,
         citations: message.citations || [],
@@ -120,67 +156,82 @@ export function ChatProvider({ children }) {
     ]);
 
     setActiveChat(restored.id);
+
     return restored;
   }, []);
 
-  // Persist first, then update the React state.
-  const addMessage = useCallback(async (message, conversationId) => {
-    const targetId = conversationId ?? activeChat;
+  // Persist a message before updating React state.
+  const addMessage = useCallback(
+    async (message, conversationId) => {
+      const targetId = conversationId ?? activeChat;
 
-    if (targetId == null) {
-      throw new Error("Create or select a conversation first.");
-    }
-
-    const response = await api.post(
-      `/conversations/${targetId}/messages`,
-      {
-        role: message.role,
-        content: message.content,
-        citations: message.citations || [],
+      if (targetId == null) {
+        throw new Error(
+          "Create or select a conversation first."
+        );
       }
-    );
 
-    const saved = {
-      ...response.data.message,
-      id: response.data.message.id,
-      role: response.data.message.role,
-      content: response.data.message.content,
-      citations: response.data.message.citations || [],
-    };
-
-    setConversations((previous) =>
-      previous.map((chat) => {
-        if (String(chat.id) !== String(targetId)) {
-          return chat;
+      const response = await api.post(
+        `/conversations/${targetId}/messages`,
+        {
+          role: message.role,
+          content: message.content,
+          citations: message.citations || [],
         }
+      );
 
-        return {
-          ...chat,
-          title:
-            message.role === "user" &&
-            chat.title === "New conversation"
-              ? message.content.replace(/\s+/g, " ").trim().slice(0, 45)
-              : chat.title,
-          updated_at: saved.created_at,
-          messages: [...(chat.messages || []), saved],
-          message_count: (chat.message_count || 0) + 1,
-        };
-      })
-    );
+      const saved = {
+        ...response.data.message,
+        role: response.data.message.role,
+        content: response.data.message.content,
+        citations:
+          response.data.message.citations || [],
+      };
 
-    return saved;
-  }, [activeChat]);
+      setConversations((previous) =>
+        previous.map((chat) => {
+          if (String(chat.id) !== String(targetId)) {
+            return chat;
+          }
 
-  const addMessages = useCallback(async (newMessages) => {
-    for (const message of newMessages) {
-      await addMessage(message);
-    }
-  }, [addMessage]);
+          return {
+            ...chat,
+            title:
+              message.role === "user" &&
+              chat.title === "New conversation"
+                ? message.content
+                    .replace(/\s+/g, " ")
+                    .trim()
+                    .slice(0, 45)
+                : chat.title,
+            updated_at: saved.created_at,
+            messages: [
+              ...(chat.messages || []),
+              saved,
+            ],
+            message_count:
+              (chat.message_count || 0) + 1,
+          };
+        })
+      );
 
+      return saved;
+    },
+    [activeChat]
+  );
+
+  const addMessages = useCallback(
+    async (newMessages) => {
+      for (const message of newMessages) {
+        await addMessage(message);
+      }
+    },
+    [addMessage]
+  );
+
+  // Update displayed messages without implicitly saving duplicates.
   const setCurrentMessages = useCallback(
     (newMessages) => {
-      // Message replacement is intentionally not persisted implicitly.
-      // Use addMessage for durable writes to avoid accidental duplicates.
       setConversations((previous) =>
         previous.map((chat) =>
           String(chat.id) === String(activeChat)
@@ -192,6 +243,7 @@ export function ChatProvider({ children }) {
     [activeChat]
   );
 
+  // Delete a conversation belonging to the current user.
   const deleteChat = useCallback(async (chatId) => {
     setChatError("");
 
@@ -204,10 +256,13 @@ export function ChatProvider({ children }) {
     );
 
     setActiveChat((current) =>
-      String(current) === String(chatId) ? null : current
+      String(current) === String(chatId)
+        ? null
+        : current
     );
   }, []);
 
+  // Delete all conversations currently loaded for this user.
   const clearChats = useCallback(async () => {
     const current = [...conversations];
 
@@ -217,6 +272,7 @@ export function ChatProvider({ children }) {
 
     setConversations([]);
     setActiveChat(null);
+    setChatError("");
   }, [conversations]);
 
   return (
