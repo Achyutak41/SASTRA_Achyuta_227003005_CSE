@@ -14,8 +14,14 @@ from ingestion.pdf_ingestor import (
     HLDDocumentIngestor,
     HLDIngestionError,
 )
-
-
+from ingestion.architecture_extractor import (
+    AUTOSARArchitectureExtractor,
+    ArchitectureExtractionError,
+)
+from ingestion.architecture_cleaner import (
+    AUTOSARArchitectureCleaner,
+    ArchitectureCleaningError
+)
 # ---------------------------------------------------------
 # Application
 # ---------------------------------------------------------
@@ -58,6 +64,13 @@ ingestor = HLDDocumentIngestor(
 )
 
 
+architecture_extractor = AUTOSARArchitectureExtractor(
+    processed_dir=str(PROCESSED_DIR)
+)
+
+architecture_cleaner = AUTOSARArchitectureCleaner(
+    processed_dir=str(PROCESSED_DIR)
+)
 # ---------------------------------------------------------
 # Health check
 # ---------------------------------------------------------
@@ -163,7 +176,145 @@ def upload_hld():
             }
         ), 500
 
+@app.route(
+    "/api/extract-architecture",
+    methods=["POST", "GET"],
+)
+def extract_architecture():
 
+    # -----------------------------------------------------
+    # Accept document_id from JSON
+    # -----------------------------------------------------
+
+    document_id = None
+
+    data = request.get_json(
+        silent=True
+    )
+
+    if data:
+        document_id = data.get(
+            "document_id"
+        )
+
+    # -----------------------------------------------------
+    # Also accept document_id from query parameter
+    # -----------------------------------------------------
+
+    if not document_id:
+        document_id = request.args.get(
+            "document_id"
+        )
+
+    # -----------------------------------------------------
+    # Validate document ID
+    # -----------------------------------------------------
+
+    if not document_id:
+
+        return jsonify(
+            {
+                "success": False,
+                "error": (
+                    "document_id is required. "
+                    "Provide it as JSON or "
+                    "as a query parameter."
+                ),
+            }
+        ), 400
+
+    # -----------------------------------------------------
+    # Extract architecture
+    # -----------------------------------------------------
+
+    try:
+
+        result = (
+            architecture_extractor
+            .extract_from_document(
+                document_id
+            )
+        )
+
+        return jsonify(
+            {
+                "success": True,
+                "message": (
+                    "AUTOSAR architecture "
+                    "knowledge extracted successfully."
+                ),
+                "architecture": result,
+            }
+        ), 200
+
+    except ArchitectureExtractionError as exc:
+
+        return jsonify(
+            {
+                "success": False,
+                "error": str(exc),
+            }
+        ), 400
+
+    except Exception as exc:
+
+        return jsonify(
+            {
+                "success": False,
+                "error": (
+                    f"Unexpected server error: {exc}"
+                ),
+            }
+        ), 500
+
+
+@app.route("/api/clean-architecture", methods=["POST", "GET"])
+def clean_architecture():
+
+    document_id = None
+
+    data = request.get_json(silent=True)
+
+    if data:
+        document_id = data.get("document_id")
+
+    if not document_id:
+        document_id = request.args.get("document_id")
+
+    if not document_id:
+        return jsonify({
+            "success": False,
+            "error": "document_id is required."
+        }), 400
+
+    try:
+
+        result = architecture_cleaner.clean_architecture(
+            document_id
+        )
+
+        return jsonify({
+            "success": True,
+            "message": "AUTOSAR architecture knowledge cleaned successfully.",
+            "architecture": result
+        }), 200
+
+    except ArchitectureCleaningError as exc:
+
+        return jsonify({
+            "success": False,
+            "error": str(exc)
+        }), 400
+
+    except Exception as exc:
+
+        return jsonify({
+            "success": False,
+            "error": f"Unexpected error: {exc}"
+        }), 500
+
+    
+    
 # ---------------------------------------------------------
 # Run
 # ---------------------------------------------------------

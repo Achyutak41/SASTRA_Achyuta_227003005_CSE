@@ -1,0 +1,80 @@
+Case Study Report
+06/10/2026
+Subject:
+Professional Ethics
+Unit:
+Unit I
+Topics:
+Codes of Ethics, Honesty, Self-interest
+Case Study: Reusing the University Vision Model in a Commercial Drone
+Group Name: Group193785
+Member
+Role
+Achyuta K
+Faculty Lead and Research Lab Steward
+Ajay N  
+Startup Product and Compliance
+Representative
+Pokuru Satheesh  
+Priya, Intern and Prospective Startup
+Employee
+Page 01-02
+Downloaded by: Ajay N   (Student)
+Case Study Brief
+This case study examines the ethical and practical challenges faced by Priya, an intern at the Tiruchirappalli
+Autonomous Systems Research Lab, when integrating a crop-disease vision model containing a module
+licensed strictly for non-commercial use into a commercial drone product by a startup. The group analyzed
+the conflicting obligations to original creators, the lab, the startup, and Priya's own career, and explored
+responsible actions amid sponsorship pressures, licensing constraints, and tight deadlines. Through
+role-based discussions and a collaborative group dialogue, the participants identified key ethical
+responsibilities and proposed a balanced approach to address the license conflict without compromising
+integrity or stakeholder interests.
+Problem Analysis
+•   The lab's internal documentation inaccurately described the entire model as reusable, conflicting with
+the module's non-commercial license, risking unauthorized commercial use.
+•   The startup requires a commercial demonstration within 16 days, but replacing the restricted module
+would take six weeks and significant additional funding.
+•   Priya faces pressure from the startup's job offer contingent on successful integration, creating a personal
+conflict between career interests and ethical obligations.
+•   Failure to address the license conflict transparently could expose all parties—creators, lab, startup, and
+students—to legal, reputational, and financial risks.
+
+Case Study Report
+06/10/2026
+Page 02-02
+Downloaded by: Ajay N   (Student)
+Methodology
+•   Role-based ethical analysis with participants representing the faculty lead, startup compliance
+representative, and the intern to explore multiple perspectives.
+•   Detailed review of licensing terms, project timelines, funding sources, and stakeholder obligations to
+identify conflicts and responsibilities.
+•   Facilitated group discussion to harmonize individual viewpoints into joint recommendations
+emphasizing transparency, compliance, and protection of stakeholders.
+•   Application of ethical codes focusing on honesty, intellectual property respect, and balancing
+self-interest against institutional and creator rights.
+Key Findings
+•   The lab holds responsibility for correcting inaccurate documentation and preventing unauthorized
+commercial use, regardless of good faith assumptions.
+•   The startup must independently verify license permissions and avoid commercial use without explicit
+written consent from the original creators.
+•   Priya must prioritize professional integrity by disclosing the license conflict, refusing unauthorized
+integration, and supporting lawful alternatives despite career pressures.
+•   A temporary, clearly labeled research-only demonstration may be ethically permissible if strictly
+separated from commercial activities and permitted by the license.
+Recommendations
+•   Pause any commercial use of the restricted module until obtaining explicit written permission or
+developing a fully licensed replacement.
+•   Implement transparent documentation and communication procedures involving all parties, including
+protecting Priya from pressure or retaliation.
+•   Establish clear accountability within the lab for maintaining accurate software licensing records and
+review processes before labeling software as reusable.
+•   Provide documented commitments from the startup to maintain student stipends and support during
+any project delays, alongside independent reporting channels for ethical concerns.
+
+Conclusions
+The case underscores the paramount importance of respecting intellectual property rights and maintaining
+professional integrity in research collaborations, even under significant commercial and personal pressures.
+By prioritizing transparent communication, lawful compliance, and stakeholder protection, the lab, startup,
+and Priya can navigate licensing conflicts responsibly. The agreed safeguards and role-based
+accountability provide a framework to uphold ethical standards while seeking practical solutions that
+preserve funding, project viability, and career opportunities without compromising legal or moral obligations.

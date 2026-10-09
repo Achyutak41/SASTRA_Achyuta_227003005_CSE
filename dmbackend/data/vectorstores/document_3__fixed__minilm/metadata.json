@@ -1,0 +1,86 @@
+[
+  {
+    "vector_index": 0,
+    "chunk_id": 248,
+    "document_id": 3,
+    "user_id": 1,
+    "page_number": 1,
+    "section_title": null,
+    "chunking_strategy": "fixed",
+    "embedding_model": "minilm",
+    "embedding_model_name": "sentence-transformers/all-MiniLM-L6-v2",
+    "text": "Case Study Report\n06/10/2026\nSubject:\nProfessional Ethics\nUnit:\nUnit I\nTopics:\nCodes of Ethics, Honesty, Self-interest\nCase Study: Reusing the University Vision Model in a Commercial Drone\nGroup Name: Group193785\nMember\nRole\nAchyuta K\nFaculty Lead and Research Lab Steward\nAjay N  \nStartup Product and Compliance\nRepresentative\nPokuru Satheesh  \nPriya, Intern and Prospective Startup\nEmployee\nPage 01-02\nDownloaded by: Ajay N   (Student)\nCase Study Brief\nThis case study examines the ethical and practical challenges faced by Priya, an intern at the Tiruchirappalli\nAutonomous Systems Research Lab, when integrating a crop-disease vision model containing a module\nlicensed strictly for non-commercial use into a commercial drone product by a startup. The group analyzed\nthe conflicting obligations to original creators, the lab, the startup, and Priya's own career, and explored\nresponsible actions amid sponsorship pressures, licensing constraints, and tight deadlines. Through\nrole-based discussion"
+  },
+  {
+    "vector_index": 1,
+    "chunk_id": 249,
+    "document_id": 3,
+    "user_id": 1,
+    "page_number": 1,
+    "section_title": null,
+    "chunking_strategy": "fixed",
+    "embedding_model": "minilm",
+    "embedding_model_name": "sentence-transformers/all-MiniLM-L6-v2",
+    "text": "a's own career, and explored\nresponsible actions amid sponsorship pressures, licensing constraints, and tight deadlines. Through\nrole-based discussions and a collaborative group dialogue, the participants identified key ethical\nresponsibilities and proposed a balanced approach to address the license conflict without compromising\nintegrity or stakeholder interests.\nProblem Analysis\n•   The lab's internal documentation inaccurately described the entire model as reusable, conflicting with\nthe module's non-commercial license, risking unauthorized commercial use.\n•   The startup requires a commercial demonstration within 16 days, but replacing the restricted module\nwould take six weeks and significant additional funding.\n•   Priya faces pressure from the startup's job offer contingent on successful integration, creating a personal\nconflict between career interests and ethical obligations.\n•   Failure to address the license conflict transparently could expose all parties—creators, lab, start"
+  },
+  {
+    "vector_index": 2,
+    "chunk_id": 250,
+    "document_id": 3,
+    "user_id": 1,
+    "page_number": 1,
+    "section_title": null,
+    "chunking_strategy": "fixed",
+    "embedding_model": "minilm",
+    "embedding_model_name": "sentence-transformers/all-MiniLM-L6-v2",
+    "text": "ween career interests and ethical obligations.\n•   Failure to address the license conflict transparently could expose all parties—creators, lab, startup, and\nstudents—to legal, reputational, and financial risks."
+  },
+  {
+    "vector_index": 3,
+    "chunk_id": 251,
+    "document_id": 3,
+    "user_id": 1,
+    "page_number": 2,
+    "section_title": null,
+    "chunking_strategy": "fixed",
+    "embedding_model": "minilm",
+    "embedding_model_name": "sentence-transformers/all-MiniLM-L6-v2",
+    "text": "Case Study Report\n06/10/2026\nPage 02-02\nDownloaded by: Ajay N   (Student)\nMethodology\n•   Role-based ethical analysis with participants representing the faculty lead, startup compliance\nrepresentative, and the intern to explore multiple perspectives.\n•   Detailed review of licensing terms, project timelines, funding sources, and stakeholder obligations to\nidentify conflicts and responsibilities.\n•   Facilitated group discussion to harmonize individual viewpoints into joint recommendations\nemphasizing transparency, compliance, and protection of stakeholders.\n•   Application of ethical codes focusing on honesty, intellectual property respect, and balancing\nself-interest against institutional and creator rights.\nKey Findings\n•   The lab holds responsibility for correcting inaccurate documentation and preventing unauthorized\ncommercial use, regardless of good faith assumptions.\n•   The startup must independently verify license permissions and avoid commercial use without explicit\nwritten c"
+  },
+  {
+    "vector_index": 4,
+    "chunk_id": 252,
+    "document_id": 3,
+    "user_id": 1,
+    "page_number": 2,
+    "section_title": null,
+    "chunking_strategy": "fixed",
+    "embedding_model": "minilm",
+    "embedding_model_name": "sentence-transformers/all-MiniLM-L6-v2",
+    "text": "egardless of good faith assumptions.\n•   The startup must independently verify license permissions and avoid commercial use without explicit\nwritten consent from the original creators.\n•   Priya must prioritize professional integrity by disclosing the license conflict, refusing unauthorized\nintegration, and supporting lawful alternatives despite career pressures.\n•   A temporary, clearly labeled research-only demonstration may be ethically permissible if strictly\nseparated from commercial activities and permitted by the license.\nRecommendations\n•   Pause any commercial use of the restricted module until obtaining explicit written permission or\ndeveloping a fully licensed replacement.\n•   Implement transparent documentation and communication procedures involving all parties, including\nprotecting Priya from pressure or retaliation.\n•   Establish clear accountability within the lab for maintaining accurate software licensing records and\nreview processes before labeling software as reusabl"
+  },
+  {
+    "vector_index": 5,
+    "chunk_id": 253,
+    "document_id": 3,
+    "user_id": 1,
+    "page_number": 2,
+    "section_title": null,
+    "chunking_strategy": "fixed",
+    "embedding_model": "minilm",
+    "embedding_model_name": "sentence-transformers/all-MiniLM-L6-v2",
+    "text": "blish clear accountability within the lab for maintaining accurate software licensing records and\nreview processes before labeling software as reusable.\n•   Provide documented commitments from the startup to maintain student stipends and support during\nany project delays, alongside independent reporting channels for ethical concerns."
+  },
+  {
+    "vector_index": 6,
+    "chunk_id": 254,
+    "document_id": 3,
+    "user_id": 1,
+    "page_number": 3,
+    "section_title": null,
+    "chunking_strategy": "fixed",
+    "embedding_model": "minilm",
+    "embedding_model_name": "sentence-transformers/all-MiniLM-L6-v2",
+    "text": "Conclusions\nThe case underscores the paramount importance of respecting intellectual property rights and maintaining\nprofessional integrity in research collaborations, even under significant commercial and personal pressures.\nBy prioritizing transparent communication, lawful compliance, and stakeholder protection, the lab, startup,\nand Priya can navigate licensing conflicts responsibly. The agreed safeguards and role-based\naccountability provide a framework to uphold ethical standards while seeking practical solutions that\npreserve funding, project viability, and career opportunities without compromising legal or moral obligations."
+  }
+]
