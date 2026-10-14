@@ -1,0 +1,2 @@
+# Security and privacy
+Optional Ollama can run locally. Uploaded knowledge remains in Streamlit session state; HARA records persist in SQLite. Do not upload confidential data without authorization. Do not expose the port publicly without authentication, TLS, authorization, and hardening. Do not commit `.env`, credentials, or sensitive database files. Docker configuration is for a prototype, not production.

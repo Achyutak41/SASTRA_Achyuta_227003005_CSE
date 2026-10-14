@@ -1,0 +1,15 @@
+services:
+  hara-assistant:
+    build: .
+    container_name: ai-hara-assistant
+    ports: ["8501:8501"]
+    environment:
+      HARA_DB_PATH: /app/data/hara.db
+      OLLAMA_BASE_URL: ${OLLAMA_BASE_URL:-http://host.docker.internal:11434}
+      OLLAMA_MODEL: ${OLLAMA_MODEL:-phi}
+      OLLAMA_TIMEOUT_SECONDS: ${OLLAMA_TIMEOUT_SECONDS:-300}
+    volumes: [hara_data:/app/data]
+    extra_hosts: ["host.docker.internal:host-gateway"]
+    restart: unless-stopped
+volumes:
+  hara_data:

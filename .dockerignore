@@ -1,0 +1,1 @@
+.venv\n__pycache__\n.pytest_cache\n.git\n*.pyc\ndata/*.db\n

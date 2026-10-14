@@ -1,0 +1,1 @@
+Source modules: `app.py` Streamlit UI; `hara/asil.py` deterministic candidate ASIL lookup; `hara/requirements.py` draft templates; `hara/knowledge.py` extraction and TF-IDF retrieval; `hara/storage.py` SQLite persistence/audit; `hara/llm.py` optional Ollama; `tests/` unit tests.\n

@@ -1,0 +1,14 @@
+{
+  "notice": "Illustrative only; not a validated engineering assessment.",
+  "hazard_id": "DEMO-001",
+  "item": "Vehicle speed control",
+  "malfunction": "Unintended positive torque request",
+  "operational_situation": "Vehicle moving in traffic",
+  "hazardous_event": "Unintended acceleration while following another vehicle",
+  "potential_harm": "Potential collision and occupant injury",
+  "severity": "S3",
+  "exposure": "E4",
+  "controllability": "C3",
+  "candidate_asil": "ASIL D",
+  "review_status": "Pending"
+}

@@ -1,0 +1,1 @@
+Record a 5–10 minute demonstration following `Documentation/demo_script.md`. Show actual live behavior and test results. No video is included until you record one.\n

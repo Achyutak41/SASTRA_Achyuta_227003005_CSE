@@ -1,0 +1,3 @@
+streamlit>=1.39,<2\npandas>=2.1,<3\npypdf>=5,<7\nscikit-learn>=1.4,<2\nrequests>=2.31,<3\npytest>=8,<9\n
+scikit-learn
+pypdf	

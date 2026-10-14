@@ -1,0 +1,1 @@
+Upload only authorized item definitions, architecture descriptions, operational scenarios, approved hazard libraries, safety policies, and verification evidence. The included sample is illustrative, not validated safety data. Scanned PDFs need external OCR.\n

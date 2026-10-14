@@ -1,0 +1,16 @@
+{
+  "generation": {
+    "provider": "optional local Ollama",
+    "model_env": "OLLAMA_MODEL",
+    "temperature": 0
+  },
+  "retrieval": {
+    "method": "TF-IDF cosine similarity",
+    "top_k": 5
+  },
+  "asil": {
+    "engine": "hara.asil.determine_candidate_asil",
+    "llm_can_override": false,
+    "human_review_required": true
+  }
+}

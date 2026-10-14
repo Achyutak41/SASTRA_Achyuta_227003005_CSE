@@ -1,0 +1,26 @@
+# Electronic Power Steering — Sample System Description
+
+Document ID: EPS-SAMPLE-001
+
+## 1. System overview
+The Electronic Power Steering (EPS) system assists the driver in steering the vehicle. It includes a steering torque sensor, an electronic control unit (ECU), an electric motor, and vehicle power supply connections.
+
+## 2. Normal operation
+The torque sensor measures steering input. The ECU processes sensor information and commands the electric motor to provide steering assistance.
+
+## 3. Potential malfunction
+An unintended motor torque command may cause unexpected steering assistance. A loss of steering assistance may increase the effort required from the driver.
+
+## 4. Operational scenarios
+The vehicle may be moving in urban traffic, travelling on a curved road, or manoeuvring at low speed.
+
+## 5. Potential hazardous event
+Unexpected steering assistance while travelling on a curved road could make vehicle control more difficult and may contribute to a collision.
+
+## 6. Safety considerations
+The system design should consider sensor plausibility checks, monitoring of ECU operation, detection of abnormal motor commands, and a defined response to detected faults.
+
+## 7. Verification considerations
+Potential verification evidence includes sensor fault tests, abnormal-command tests, fault-response timing measurements, and documented review of the safety requirements.
+
+Note: This is an illustrative educational sample, not an approved automotive safety document or validated HARA assessment.
